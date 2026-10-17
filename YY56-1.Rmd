@@ -1,0 +1,535 @@
+---
+output:
+  pdf_document:
+    latex_engine: xelatex
+fontsize: 12pt
+mainfont: "Times New Roman"
+geometry: margin=1in
+---
+
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+\begin{titlepage}
+    \centering
+    \vspace*{\fill}
+    
+    {\LARGE Human Supervision of Multi-Agent Reinforcement-Learning Teams:\\
+    Selecting Teams across Environments with Varying Risk of Stag Illness \par}
+    
+    \vspace{1.5cm}
+    
+    {\Large Student name: \par}
+    \vspace{0.5cm}
+    {\Large 2026-01-11 \par}
+    
+    \vspace*{\fill}
+\end{titlepage}
+
+\newpage
+\tableofcontents
+
+\newpage
+
+# Abstract
+
+This paper has analyzed the selection of one out of three pre-trained multi-agent reinforcement-learning teams (Stag, Hare, DisAdv) by human supervisors in presented environments that differ in the likelihood of the presence of high-reward stags who are sick (0, 30, 90). Each of the thirty human supervisors was taken through nine ecology trials and gave workload (NASA-TLX), situation awareness (SART), and decision/behavioural measures (choice accuracy, response latency, team-selection clicks, and performance score). The descriptive statistic reveals that the mean performance grades are 691.2 ( Extreme Hare, E), 751.5 ( Ambiguous, O) and 795.6 ( Extreme Stag, R). One-way ANOVA showed that there was a significant difference between condition and performance as F(2,27) = 4.49, p = 0.0207, and post-hoc tests showed that significantly better performance was observed in R than in E (mean difference = 104.4, p = 0.0159). There was also a difference in situation awareness (SART), F(2,27) = 5.24, p = 0.012, O > E (diff = 4.9, p = 0.0177) and R > E (diff = 4.4, p = 0.0352). There was no significant difference between condition in workload (NASA-TLX total), F(2,27) =1.98, p=0.158; Bayesian ANOVA provided BF=0.733 (evidence slightly favouring the null). Correlational results depict performance to have positive relationship with choice accuracy ( r = 0.64, p = 0.001) and negative relationship with choice accuracy response time ( r = -0.446, p = 0.014). Findings suggest supervisors would make the best decisions and make them quicker in unambiguous Stag-favouring conditions; ambiguous conditions would cause more reported SA, but no higher choice of the adaptive DisAdv team. It has implications to human-agent teaming, transparency and training.
+
+\newpage
+
+# Introduction
+In contemporary socio-technical systems, human supervisors should choose, control, and supervise autonomous agents in which the learned behaviour of the agents can vary significantly depending on the context of training (Vaccaro, Almaatouq & Malone, 2021; Schmutz et al., 2023). Multi-agent reinforcement learning (MARL) is a model where agents trained in an environment where they are directed to pursue either rewards (e.g. catching stags) or avoidance (e.g. avoiding stags when they are often sick) devises specialised strategies which are only suitable in particular environmental situations. It is possible that a hybrid or adaptive team (in this case called DisAdv) which is able to sense the changing conditions and exchange information among agents can be useful in ambiguous environments (Onnasch et al., 2014; Schmid and Stanton, 2019). Nevertheless, successful human supervision is not based solely on agent capacity but also on the situation awareness (SA) of the human, perceived workload and capacity to interpret (and trust) agent behaviour (Endsley, 1995; Hart and Staveland, 1988).
+This paper discusses the skills of human supervisors to choose the best team (Stag, Hare, DisAdv) in the environment with different stag-illness likelihood (0%, 30, 90). The experimental variables were: task performance (mark), the correctness of the choice (proprobability of selecting team to be the optimal team as per the environment), response latency (time to select a team after the environment change), team-selection activity, perceived workload (NASA-TLX subscales and total), and situation awareness (SART). The design enabled us to test the hypothesis: (a) supervisors will perform better in clear (extreme) vs ambiguous environments; (b) supervisors will choose adaptive teams (DisAdv) in an ambiguous environment; and (c) supervisors will have predictable relationships between SA, workload and decision performance.
+
+## Research Questions and Hypotheses
+
+Based on the literature above, the following testable hypotheses were developed:
+
+
+**H1:** The accuracy and performance of choices will be better in extreme environments (0% and 90% stag-illness) than in the ambiguous environment (30%).
+
+**H2:** The adaptive DisAdv team will be more frequently chosen by supervisors in the ambiguous environment compared to extreme environments.
+
+**H3:** In ambiguous environments, the selection latency (time to click team selection) will be longer compared to extreme environments.
+
+**H4:** Choice accuracy will be positively related to situation awareness (SART scores), while response time will be negatively related to situation awareness.
+
+**H5:** Self-reported workload (NASA-TLX total) will be higher in the ambiguous setting and will be negatively related to choice accuracy.
+
+\newpage
+# Methods
+## Participants
+The study adopted within-subjects design, and every participant was subjected to all three types of environment, and there were three replicas of each. The defined environment conditions were 0% of Stag healthy and 30 percent of ambiguous and 90 percent of Stag ill. The participants had to choose one of three pre-trained AI teams, in each of the three environments: the Stag team that employed a reward-seeking policy; the Hare team that was risk-averse; and the DisAdv team that was an adaptive team where one agent could detect and share stag illness information. Before the task commenced the participants were given instruction as to the workflow and the rules that applied to the environments so that they were aware of how the environment changes are reflected in the best team decisions.
+## Experimental Design and Materials
+The experiment operated using within subject design, that is, each subject was subjected to all the three types of environments and three replicas of each type were used (Lambdin and Shaffer, 2009). The conditions of the environment were characterized as 0 percent of Stag healthy, 30 per cent of ambiguous, and 90 percent of Stag ill. In each of the three environments, participants were needed to choose one of three pre-trained AI teams, including the Stag team, which pursued a reward-seeking strategy, the Hare team, which avoided risks, and the DisAdv team, which was an adaptive team where one agent could learn about stag illness and exchange information on it. The participants were pre-informed of the workflow and the principles which governed the environments, so that before starting with the task, they knew the effect that environment manipulation had on the optimal team decisions (Collins et al., 2022).
+A number of outcome measures were observed during the task. Performance score was the numeric award that each participant received in the exposure to the environment, and was put down in FullData sheet and FullData2 sheet (Koopmans et al., 2014). The measure of the accuracy of the choice consisted in the percentage of the team selections that corresponded to the best team in the environment 0% environments were best handled by the Stag team, 30% by the DisAdv team and 90% by the Hare team. Latency was measured by Time to respond to the environment which was the number of seconds in which the change in environment occurred to the time the participant selected a team (Emmanuelle Apartis, 2013). The team selection clicks reported the number of times the participants interacted with the selection button which could be checking or switching teams. The NASA-TLX was used to measure subjective workload, and it has six subscales (mental demand, physical demand, temporal demand, performance, effort, and frustration) and a total score that was calculated as the mean of the subscales. The SART was used to test the situation awareness which produced a total score per participant. All data were extracted in the Excel sheet, in the copy of Expt2_final.xlsx, under the Workload, SA, FullData, and FullData2 sheets.
+## Data preparation and analysis plan
+In R, data were read and cleaned using FullData2 had many columns that were imported as character, and they were coerced to numeric (and NA coping where coercion was needed)  De Jonge and Van Der Loo, 2013). In the case of factors, the participant IDs were transformed to them. Analyses involved descriptive statistics, visualisations, one-way ANOVAs (condition as factor), Tukey post-hoc, Levene and ShapiroWilk test of assumptions, Bayesian ANOVA (BayesFactor package) of workload, individual ANOVA of NASA-TLX subscales, polychoric correlation of SA items (attempted), analysis of reliability of NASA-TLX subscales (Cronbachs alpha) and Pearson correlation of key continuous variables (score, NASA-TLX, SART, choice accuracy, response time (Juarros-Basterretxea et al., 2024).
+The tests of statistics were all performed with α =.05. In the case of Bayesian Interpretation, standard interpretation (e.g., BF10, which is greater than 3, is moderate evidence in favor of H1) was made (Wulff and Taylor, 2024).
+
+# Results
+All descriptive statistics and inferential findings below are directly taken off the R analysis results as outlined above.
+
+## Descriptive statistics
+Descriptive statistics of total workload (as the NASA-TLX total score) showed that there was a variation between conditions. The highest workload was recorded in the Extreme_Hare condition ( E; M = 46.2, SD = 15.1, n = 10), then the Extreme_Stag condition ( R; M = 34.2, SD = 11.0, n = 10) and the Extreme condition ( O; M = 38.1, SD = 14.8, n = 10). Analysis of NASA-TLX subscale indicated that mental demand was greatest in the E condition (M= 57.0), a bit lesser in O (M= 54.0), and the least in R (M= 48.0). A similar pattern was applied to effort, where E = 59, O = 52 and R =34. Conditional selective summary of these subscale means is as shown below.
+```{r full-analysis, echo=TRUE, results='asis'}
+# ==============================
+# 1. Load & Install Packages
+# ==============================
+library(tidyverse)    # Data manipulation & ggplot2
+library(janitor)      # Cleaning column names
+library(skimr)        # Overview of data
+library(lme4)         # Linear mixed-effects models
+library(lmerTest)     # p-values for lme4 models
+library(BayesFactor)  # Bayesian analysis
+library(psych)        # Tetrachoric correlation
+library(polycor)      # Polychoric correlation
+library(reshape2)     # Data reshaping for plotting
+library(readxl)
+library(kableExtra)
+# ==============================
+# 2. Load Excel Data
+# ==============================
+file_path <- "C:/Users/brian/Downloads/Copy of Expt2_final.xlsx"
+
+workload  <- read_excel(file_path, sheet = "Workload")  %>% clean_names()
+sa        <- read_excel(file_path, sheet = "SA")        %>% clean_names()
+fulldata  <- read_excel(file_path, sheet = "FullData")  %>% clean_names()
+fulldata2 <- read_excel(file_path, sheet = "FullData2") %>% clean_names()
+
+fulldata2 <- fulldata2 %>%
+  mutate(across(c(score, team_selection_clicks, choice_accuracy, time_respond_env,
+                  proportion_stag, proportion_hare, proportion_dis_adv,
+                  nasa_tlx, sart), as.numeric))
+
+cat("Data loaded successfully!\n")
+
+# ==============================
+# 3. NASA-TLX Table by Condition
+# ==============================
+# Summary table: Mental Demand, Effort, Physical Demand by condition (E / O / R)
+library(dplyr)
+library(tidyr)
+library(knitr)
+
+subscales <- c("mental_demand", "effort", "physical_demand")
+
+table_subscales <- workload %>%
+  # normalize condition labels to E / O / R (handles both full names and single letters)
+  mutate(cond = case_when(
+    condition %in% c("Extreme_Hare", "Extreme_Hare ", "E")  ~ "E",
+    condition %in% c("Ambiguous", "Ambiguous ", "O")       ~ "O",
+    condition %in% c("Extreme_Stag", "Extreme_Stag ", "R") ~ "R",
+    TRUE ~ as.character(condition)
+  )) %>%
+  select(cond, all_of(subscales)) %>%
+  pivot_longer(cols = all_of(subscales), names_to = "Subscale", values_to = "Value") %>%
+  group_by(Subscale, cond) %>%
+  summarise(
+    Mean = round(mean(Value, na.rm = TRUE), 1),
+    SD   = round(sd(Value, na.rm = TRUE), 1),
+    n    = sum(!is.na(Value)),
+    .groups = "drop"
+  ) %>%
+  # create "mean (sd)" label and reshape so subscales are rows and conditions are columns
+  mutate(Mean_SD = ifelse(is.na(Mean), NA, paste0(Mean, " (", SD, ")"))) %>%
+  select(Subscale, cond, Mean_SD) %>%
+  pivot_wider(names_from = cond, values_from = Mean_SD) %>%
+  # optional: rename subscales for nicer display
+  mutate(Subscale = recode(Subscale,
+                           mental_demand = "Mental Demand",
+                           effort = "Effort",
+                           physical_demand = "Physical Demand"))
+
+# Print nicely
+knitr::kable(table_subscales,
+             caption = "NASA-TLX Subscale Means (Mean (SD)) by Condition",
+             booktabs = TRUE)
+
+
+```
+The situation awareness, as assessed by way of SART total score, revealed the opposite situation, with the lowest scores in E (M = 10.2, SD = 4.24, n = 10) and with the highest scores in O (M = 15.1, SD = 2.88, n = 10) and R (M = 14.6, SD = 3.92, n = 10). According to FullData, the Scores in the areas of performance were lowest in Extreme_Hare (E: M = 691.2, SD = 88.8), higher in the category of Ambiguous (O: M = 752.0, SD = 95.7), and largest in the category of Extreme Stag (R: M = 795.6, SD = 36.0). The means of FullData2 were found to support these individual-participant means (E = 691.0; O = 752.0; R = 796.0).
+
+## Inferential statistics
+### Workload (NASA-TLX total)
+One-way ANOVA of the differences in NASA-TLX total scores at different conditions showed no significance, F(2,27) = 1.98, p = 0.158. Homogeneity of variance (Levene, p = 0.774) and approximate normality of residuals (Shapiro Wilk, W = 0.964, p = 0.388) was checked by assumption checks. All post-hoc Tukey comparisons were not significant, such as O -E (diff = -8.08, p = 0.400) and R -E ( diff = -11.98, p = 0.145). Cohen effect sizes of the workload comparisons were varied with the biggest value of the d effect being observed between R vs E (d = -0.908) and the least value observed between Extreme_Stag vs Extreme Hare (d = 0.393). Analysis under Bayesian ANOVA gave a Bayes factor of 0.733 ( 0.01%) which had weak evidence to support the null model against the condition model, which was similar to the non-significant ANOVA results.
+Figure 1 will give the boxplot of the total workload scores across conditions and indicate the patterns of distribution. The mean score of the Extreme_Hare (E) condition is 691.2 (SD = 88.8), and the mean score of the Ambiguous (O) condition is 752.0 (SD = 95.7), and the latter is slightly higher, which may be attributed to an anticipated higher effort, potentially caused by uncertainty in the dynamics of the task. And the highest mean score which was 796.0 (SD = 36.0) but with a significantly smaller standard deviation was found in the Extreme_Stag (R) condition which implies that the mean workload rating of the participants was less variable when the environment was evidently biased towards the high-reward Stag team (Dung and Duong, 2024). 
+```{r workload-inferential, echo=TRUE, message=FALSE, warning=FALSE}
+# ==============================
+# 3.2.1 Workload (NASA-TLX total)
+# ==============================
+
+library(car)          # Levene's test
+library(effectsize)   # Effect sizes
+library(BayesFactor)  # Bayesian ANOVA
+library(ggplot2)      # Plotting
+library(broom)        # Tidy model output
+library(knitr)        # Tables
+
+# Convert condition to factor
+workload$condition <- as.factor(workload$condition)
+
+# One-way ANOVA: Total NASA-TLX score
+aov_workload <- aov(total_score_sum_6 ~ condition, data = workload)
+
+# Tidy ANOVA table
+anova_table <- tidy(aov_workload)
+
+# Output Table 2
+kable(
+  anova_table,
+  caption = "One-way ANOVA results for NASA-TLX total workload scores across conditions",
+  digits = 3,
+  booktabs = TRUE
+) %>%
+  kable_styling(
+    latex_options = c("hold_position", "scale_down")  # scale_down shrinks wide tables
+  )
+
+# Assumption checks
+# Levene's test for homogeneity of variance
+levene_test <- leveneTest(total_score_sum_6 ~ condition, data = workload)
+print(levene_test)
+
+# Shapiro-Wilk test for normality of residuals
+shapiro_test <- shapiro.test(residuals(aov_workload))
+cat("Shapiro-Wilk W =", round(shapiro_test$statistic,3), 
+    ", p =", round(shapiro_test$p.value,3), "\n")
+
+# Post-hoc Tukey HSD comparisons
+tukey_results <- TukeyHSD(aov_workload)
+print(tukey_results)
+
+# Cohen's d effect sizes for pairwise comparisons
+conditions <- levels(workload$condition)
+cat("\nCohen's d effect sizes:\n")
+for (i in 1:(length(conditions)-1)) {
+  for (j in (i+1):length(conditions)) {
+    group1 <- workload$total_score_sum_6[workload$condition == conditions[i]]
+    group2 <- workload$total_score_sum_6[workload$condition == conditions[j]]
+    d_val <- (mean(group2, na.rm=TRUE) - mean(group1, na.rm=TRUE)) / 
+      sqrt((sd(group1, na.rm=TRUE)^2 + sd(group2, na.rm=TRUE)^2)/2)
+    cat(conditions[j], "vs", conditions[i], ": d =", round(d_val,3), "\n")
+  }
+}
+
+# Bayesian ANOVA
+cat("\nBayesian ANOVA:\n")
+bf_workload <- tryCatch({
+  anovaBF(total_score_sum_6 ~ condition, data = workload)
+}, error = function(e) {cat("Bayesian ANOVA error:", e$message, "\n")})
+print(bf_workload)
+
+# ==============================
+# Figure 1: Boxplot of NASA-TLX Total Scores
+# ==============================
+ggplot(workload, aes(x = condition, y = total_score_sum_6, fill = condition)) +
+  geom_boxplot(alpha = 0.7) +
+  geom_jitter(width = 0.2, alpha = 0.3) +
+  theme_minimal(base_size = 12) +
+  labs(
+    title = "Figure 1: NASA-TLX Total Workload Scores by Condition",
+    x = "Condition",
+    y = "Total Workload Score"
+  ) +
+  theme(legend.position = "none")
+```
+### Situation Awareness (SART total)
+The total score of SART was significantly different in the three environmental conditions, which was situation awareness. An ANOVA with one independent t-test condition showed that there was a significant effect of condition, F(2, 27) = 5.236, p=0.012, which means that the awareness of system state of the participants did depend on whether they managed Extreme_Hare (E), Ambiguous (O), or Extreme_Stag (R) environments. Ambiguous condition versus Extreme-Hare condition post-hoc Tukey comparisons revealed a significant mean difference between situation awareness in the situation of ambiguity (O; M = 15.1, SD = 2.88) and the situation of extreme hare (E; M = 10.2, SD = 4.24), mean difference = 4.9, 95% CI [0.768, 9.032], p = 0.018. Equally, the SART scores were much higher in the Extreme_Stag condition (R; M = 14.6, SD = 3.92) in comparison with E (mean diff = 4.4, 95% CI [0.268, 8.532], p = 0.035), and the difference between R and O was not significant (diff = -0.5, p = 0.952). Homogeneity of variance was checked with assumption checks (Levene p = 0.569) and approximate normality of the residual state (ShapiroWilk p = 0.427).
+These differences are depicted in Fig 2 qualitatively where situation awareness was lowest when the participants were in the Extreme Hare environments and both the Ambiguous as well as the Extreme Stag conditions did encourage high situation awareness. This trend indicates that uncertainty of the environment (O) or high possible payoff (R) enhances the monitoring and mental involvement of the participants, which is in line with the theoretical perspective of viewed situation awareness elevation with an increase in task demands or potential payoffs (Fang et al., 2025).
+```{r table2-descriptives, echo=TRUE, message=FALSE, warning=FALSE}
+# ==============================
+# Table 2: Descriptive Statistics for Main Variables
+# ==============================
+
+library(dplyr)
+library(knitr)
+library(kableExtra)
+
+# 1. Workload (NASA-TLX total)
+workload_summary <- workload %>%
+  group_by(condition) %>%
+  summarise(
+    n = n(),
+    Workload_Mean = round(mean(total_score_sum_6, na.rm = TRUE), 1),
+    Workload_SD   = round(sd(total_score_sum_6, na.rm = TRUE), 1),
+    .groups = 'drop'
+  )
+
+# 2. NASA-TLX Subscales
+subscale_summary <- workload %>%
+  group_by(condition) %>%
+  summarise(
+    Mental_Demand_M = round(mean(mental_demand, na.rm = TRUE),1),
+    Mental_Demand_SD = round(sd(mental_demand, na.rm = TRUE),1),
+    Physical_Demand_M = round(mean(physical_demand, na.rm = TRUE),1),
+    Physical_Demand_SD = round(sd(physical_demand, na.rm = TRUE),1),
+    Effort_M = round(mean(effort, na.rm = TRUE),1),
+    Effort_SD = round(sd(effort, na.rm = TRUE),1),
+    Performance_M = round(mean(performance, na.rm = TRUE),1),
+    Performance_SD = round(sd(performance, na.rm = TRUE),1),
+    Frustration_M = round(mean(frustration, na.rm = TRUE),1),
+    Frustration_SD = round(sd(frustration, na.rm = TRUE),1),
+    .groups = 'drop'
+  )
+
+# 3. Situation Awareness (SA total)
+sa_summary <- sa %>%
+  group_by(demand_condition) %>%
+  summarise(
+    SA_Mean = round(mean(sa_total, na.rm = TRUE), 1),
+    SA_SD = round(sd(sa_total, na.rm = TRUE), 1),
+    .groups = 'drop'
+  ) %>%
+  rename(condition = demand_condition)
+
+# 4. Performance (FullData)
+performance_summary <- fulldata %>%
+  group_by(condition) %>%
+  summarise(
+    Performance_Mean = round(mean(score, na.rm = TRUE),1),
+    Performance_SD   = round(sd(score, na.rm = TRUE),1),
+    .groups = 'drop'
+  )
+
+# ==============================
+# Merge all summaries into one table
+# ==============================
+table2 <- workload_summary %>%
+  left_join(subscale_summary, by = "condition") %>%
+  left_join(sa_summary, by = "condition") %>%
+  left_join(performance_summary, by = "condition")
+
+# Print nicely formatted table and auto-resize if too wide
+#table2 %>%
+#  kable(
+#    caption = "Table 3: Descriptive Statistics for Main Variables by Condition",
+#    booktabs = TRUE,
+#    digits = 1
+# ) %>%
+#  kable_styling(
+#    full_width = FALSE,
+#    position = "center",
+#    latex_options = c("scale_down")  # Auto-resize table to fit page
+#  )
+```
+
+```{r figure2-sa-total, echo=TRUE, message=FALSE, warning=FALSE}
+library(ggplot2)
+library(dplyr)
+
+# Prepare data for plotting
+sa_plot_data <- sa %>%
+  select(participant, demand_condition, sa_total) %>%
+  arrange(demand_condition, participant)
+
+# Summary statistics for plotting
+sa_summary <- sa_plot_data %>%
+  group_by(demand_condition) %>%
+  summarise(
+    n = n(),
+    mean_sa = mean(sa_total, na.rm = TRUE),
+    sd_sa = sd(sa_total, na.rm = TRUE),
+    se_sa = sd_sa / sqrt(n),
+    .groups = 'drop'
+  )
+
+# Print summary table
+sa_summary
+
+# Create boxplot with individual data points
+ggplot(sa_plot_data, aes(x = demand_condition, y = sa_total, fill = demand_condition)) +
+  geom_boxplot(alpha = 0.7, outlier.shape = NA) +
+  geom_jitter(width = 0.2, alpha = 0.4, color = "black") +
+  theme_minimal(base_size = 12) +
+  labs(
+    title = "Figure 2: Situation Awareness Total Score by Condition",
+    x = "Demand Condition",
+    y = "SA Total Score"
+  ) +
+  theme(legend.position = "none",
+        axis.text.x = element_text(angle = 45, hjust = 1)) +
+  scale_fill_brewer(palette = "Set2")
+```
+### Performance (Score)
+The scores of performance varied significantly across conditions, F (2,27) =4.492, p=0.021. A Mean difference of 104.4, 95% CI [17.69, 191.11] at p = 0.016 suggested that the scores in the Extreme_ Stag (R) group were significantly higher than in the Extreme_Hare (E) group. The results did not provide significant differences between Ambiguous (O) and E (diff = 60.3, p = 0.215) and R vs O (diff = 44.1, p = 0.429) indicating that the Stag team had a strong performance advantage only in the circumstances when the environment was conducive to the game. There was no issue with assumption checks, (Levene p = 0.269; ShapiroWilk p = 0.091).
+The aggregate and individual performance data are summarised in figure 3. Mean scores grew between E (M = 691, SD = 88.8) and O (M = 752, SD = 95.7), and were maximum in R (M = 796, SD = 36.0). The means were also pretty close to the median values and the ranges were smaller in R, which implied greater consistency in performance under the Stag-favouring condition. The figure shows an increase in rewards in participants with clear environmental structure and high-payoff option which are significant in the role of environmental cues on the effectiveness of their decisions and the choice of strategy (Bollen et al., 2025).
+```{r figure3-performance, echo=TRUE, message=FALSE, warning=FALSE}
+library(ggplot2)
+library(dplyr)
+
+# Prepare data for plotting
+performance_plot_data <- fulldata %>%
+  select(participant, condition, score) %>%
+  arrange(condition, participant)
+
+# Summary statistics for reference
+performance_summary <- performance_plot_data %>%
+  group_by(condition) %>%
+  summarise(
+    n = n(),
+    mean_score = mean(score, na.rm = TRUE),
+    sd_score = sd(score, na.rm = TRUE),
+    se_score = sd_score / sqrt(n),
+    .groups = 'drop'
+  )
+
+# Print summary table
+performance_summary
+
+# Create violin + boxplot with individual data points
+ggplot(performance_plot_data, aes(x = condition, y = score, fill = condition)) +
+  geom_violin(alpha = 0.6, trim = TRUE) +
+  geom_boxplot(width = 0.2, alpha = 0.8, outlier.shape = NA) +
+  geom_jitter(width = 0.15, alpha = 0.4, color = "black") +
+  theme_minimal(base_size = 12) +
+  labs(
+    title = "Figure 3: Performance Scores by Condition",
+    x = "Condition",
+    y = "Performance Score"
+  ) +
+  theme(legend.position = "none",
+        axis.text.x = element_text(angle = 45, hjust = 1)) +
+  scale_fill_brewer(palette = "Pastel1")
+```
+
+### NASA-TLX subscales
+Individual subscale analysis of NASA-TLX showed that there was significant difference in reported effort concerning conditions, F(2,27) = 4.451, p = 0.021, with the participants in Extreme_Hare (E), and Ambiguous (O) conditions reporting higher effort levels (M = 59 and 52, respectively) as compared to the Extreme_Stag (R) condition (M = 34). The physical demand was also significant, F(2,27) = 3.235, p = 0.055, E had the largest mean (28.5) and R the lowest (13). Mental demand, temporal demand, performance and frustration did not differ significantly, as did other subscales.
+These patterns are shown in figure 4 with higher effort and consequently, lower physical demand being used in higher uncertainty or risk conditions and lower subjective workload in the Stag-favouring environment. The standard errors and the means show that there are always differences, especially the lower mean and the lower variability of effort as shown by R (Bollen et al., 2025). This trend indicates that the Stag setting was less challenging to the participants, probably because of better task organization and more predictable results, and ambiguous and Hare settings had to be attended to and closely monitored due to their ambiguity, which added perceived effort and physical load.
+
+```{r figure4-nasatlx, echo=TRUE, message=FALSE, warning=FALSE}
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+
+# Reshape NASA-TLX subscale data for plotting
+workload_melt <- workload %>%
+  select(participant, condition, mental_demand, physical_demand, 
+         temporal_demand, performance, effort, frustration) %>%
+  pivot_longer(
+    cols = mental_demand:frustration,
+    names_to = "subscale",
+    values_to = "score"
+  )
+
+# Calculate mean and SE for each subscale x condition
+subscale_summary <- workload_melt %>%
+  group_by(condition, subscale) %>%
+  summarise(
+    n = n(),
+    mean_score = mean(score, na.rm = TRUE),
+    sd_score = sd(score, na.rm = TRUE),
+    se_score = sd_score / sqrt(n),
+    .groups = 'drop'
+  )
+
+# Print summary table
+subscale_summary
+
+# Create grouped barplot with error bars
+ggplot(subscale_summary, aes(x = subscale, y = mean_score, fill = condition)) +
+  geom_bar(stat = "identity", position = position_dodge(width = 0.8), alpha = 0.8) +
+  geom_errorbar(aes(ymin = mean_score - se_score, ymax = mean_score + se_score),
+                width = 0.2, position = position_dodge(0.8)) +
+  theme_minimal(base_size = 12) +
+  labs(
+    title = "Figure 4: Mean NASA-TLX Subscale Scores by Condition",
+    x = "NASA-TLX Subscale",
+    y = "Mean Score"
+  ) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  scale_fill_brewer(palette = "Pastel2")
+```
+
+### Correlation
+Pearson correlation studies found out that there were various meaningful correlations among continuous variables. Choice accuracy had a strong positive correlation with performance (score) which = 0.640, p = 0.001, which means that participants who made more accurate choices of the team earned higher rewards. Response time was also found to have a negative correlation with the choice accuracy, r = -0.446, p = 0.014, meaning that the quicker the choice was the more accurate the choice was chosen. There was a moderate but negative relationship between NASA-TLX total and SART total, r = - 0.375, p = 0.04 1, which suggested that the greater perceived workload was, the lower was the situation awareness. Other correlations were not significant or weak performance and NASA-TLX, r = -0.120; performance and SART, r = 0.014; NASA-TLX and choice accuracy, r = -0.263; SART and choice accuracy, r = 0.060; and response time and score, r = -0.156 and SART, r = -0.108. These patterns have been visualised in figure 5, and have the strongest associations between the performance, accuracy, and response efficiency, and the negative relation between the workload and situation awareness, which correlates to the cognitive load theory (Soetewey, 2020).
+```{r figure5-correlation, echo=TRUE, message=FALSE, warning=FALSE}
+library(ggplot2)
+library(reshape2)
+library(dplyr)
+library(psych)
+
+# Select relevant continuous variables for correlation
+cor_data <- fulldata %>%
+  select(score, nasa_tlx, sart, choice_accuracy, time_respond_env)
+
+# Compute correlation matrix
+cor_matrix <- cor(cor_data, use = "pairwise.complete.obs")
+
+# Melt correlation matrix for plotting
+cor_melt <- melt(cor_matrix)
+
+# Print correlation values
+cor_melt
+
+# Create correlation heatmap
+ggplot(cor_melt, aes(x = Var1, y = Var2, fill = value)) +
+  geom_tile(color = "white") +
+  geom_text(aes(label = round(value, 2)), color = "black", size = 3) +
+  scale_fill_gradient2(low = "blue", mid = "white", high = "red", 
+                       midpoint = 0, limit = c(-1, 1), name = "Correlation") +
+  theme_minimal(base_size = 12) +
+  labs(
+    title = "Figure 5: Correlation Matrix of Performance Measures",
+    x = "",
+    y = ""
+  ) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1),
+        axis.text.y = element_text(hjust = 1))
+```
+
+### Reliability
+This study showed an acceptable level of internal consistency of NASA-TLX subscales in its form, with a Cronbach alpha of 0.78 and a 95% interval of 0.64 to 0.88. This reliability is a good indication of the internal consistency of the six NASA-TLX subscales and hence they can be used as a valid measure of subjective workload among the sample. In line with accepted principles, an alpha of over 0.70 implies that the instrument is able to measure a single construct, which is perceived workload. These results are similar to the previous literature indicating that NASA-TLX is a strong and extensively utilized workload measurement tool in the human-machine interaction research (Kotian, Varghese and Motappa, 2022).
+
+# Discussion
+## Summary and interpretation of key findings
+In this study, the question presented was whether or not human supervisors could be effective in choosing between specialist and adaptive multi-agent reinforcement learning (MARL) teams in environments of varying risk profile. According to the results, there is a definite performance advantage in the environments where high-reward strategies are strongly provided. To be more specific, the greatest mean performance score was registered in Extreme_Stag (R) condition (M = 795.6) which was significantly lower than the Extreme_Hare (E) condition with the mean difference of 104.4 (p = 0.0159). It implies that in the case when an environment intensively rewards a high-reward alternative, supervisors can better identify and take advantage of the underlying task structure or can harness the inherent efficiency of the Stag-specialist team (Yang, He and Huang, 2024).
+The situation awareness was varying systematically in environmental situations. There were significant variations in SART total scores between the Extreme_Hare (E) and the Ambiguous (O) conditions and between the Extreme_Hare (E) and the Extreme Stag (R) conditions. The implication of these findings is that there is an increment in supervisory attention and awareness in uncertain conditions, or where there is saliency of potential rewards. On the other hand, the Extreme_Hare state was linked to less situation awareness indicating that conditions with lesser incentives or cues can diminish engagements and monitoring.
+The workload as a result of the NASA-TLX total scores showed no significant difference between the conditions (F(2,27) = 1.976, p = 0.158; BF = 0.733) which developed moderate Bayesian support of the null hypothesis. Nonetheless, the effort subscale did show significant differences (p = 0.021), and the effect size between workload components seemed to be moderate-large when the workload is needed to be considered constant between the Extreme_Stag and Extreme_Hare (Cohen’s d = 0.91), which indicates that components of workload can change despite the apparent stability of the workload (Griffiths et al., 2020).
+Lastly, performance was strongly related to behavioural efficiency. There is a positive correlation between performance and accuracy of choice (r = 0.64, p = 0.001; r = 0.446, p = 0.014) and speed of responding which attests to the established relations between accuracy, efficiency and outcome (Sanchez and De La Torre, 1996). Although the awareness level was higher in unclear trials, supervisors did not always favor the adaptive DisAdv team, which is also consistent with the fact that humans choose not to trust adaptive systems without clear guidelines of their usefulness (Vaccaro et al., 2021).
+
+## Relation to existing literature
+The performance benefits of the clear Stag settings (R) are consistent with meta-analytic findings on the reduction in the cognitive load and the improvement of decision outcomes when using unambiguous cues (Onnasch et al., 2014). Respondents were more likely to respond accurately and quickly in these settings, which is in line with the observation that when the level of ambiguity reduces, more tasks are performed. The high state of situational awareness can be found in the ambiguous situations which are observed, which is in accordance with the theoretical framework of Endsley (1995) that argues that uncertainty requires more situational monitoring and information processing. However, unlike the expectation that ambiguous conditions should cause the participants to prefer adaptive agents, DisAdv were selected to a lesser degree. This finding resembles the previous studies by Vaccaro et al. (2021) and Schmutz et al. (2023), which proved that trust and adaptive systems adoption are conditional on transparency, reason clarity, and adaptive behaviours communication.
+The workload-situation awareness negative correlation (r = -0.375, p = 0.041) confirms the popular belief that high cognitive or perceived work load would deteriorate situation awareness and quality of decisions (Hart and Staveland, 1988). It means that the attentional resources of supervisors can be overloaded in situations where more effort is required, which might make them unable to track the states of systems effectively.
+
+## Practical implications
+A number of practical implications can be drawn out of these findings. To start with, there is the requirement of transparency and adaptive agent training. Clear signs of its detection behaviour and success rates of the DisAdv agent can also be offered as a way of influencing supervisors to use it more suitably in a grey setting (Sanchez and De La Torre, 1996). Second, interface design must be focused on improving the situation awareness and lessening the effort (Suriya and Nivetha, 2023). As an example, the introduction of visuals like the number of berries can be used as cues that can enhance the perception and precision of environmental indicators that are not explicit. Third, work load sub components should be evaluated in an experimental and operational way. The effect of meaning differences in effort or physical demand that affect behaviour and quality of decision making may be masked by composite TLX scores.
+
+## Limitations
+There are a number of limitations that need to be mentioned. The sample size of N = 30 is small, and this can also limit the statistical power of detecting smaller effects (Mascha and Vetter, 2018). Some hypothesized effects may also not have much evidence based on the analysis of Bayesian. There was also a limit on the number of mixed-effects modelling that could address repeated measures contained in the participants because of aggregation of trial-level data. The level of briefing on the capabilities of the agents especially to the adaptive DisAdv team might have made a difference; there might have been low transparency in the selection of adaptive agents. Lastly, the laboratory setting and its unnatural generalizability of the laboratory task, including the number of the berries and the probability of an underlying illness, might restrict generalizability to real-world complex supervisory contexts, and one should test ecological validity in the future.
+
+## Future work
+The future study must offer concrete acts of transparency, e.g. rationale displays or post-selection feedback, to ascertain whether supervisors are more effective in the selection of agents who are adaptive in uncertain situations. Complete data at the trial-level would allow hierarchical mixed-effects modelling to model both within-subject and between-subject variance and investigate effects of time on learning (Jost and Jansen, 2022). The assessment of interaction between agent explanation, participant experience and team choice would be possible with increasing sample size and different briefing or training protocols. Lastly, incorporating eye-tracking or think-aloud procedures may shed more light on the exact cues and approaches employed by supervisors to make team selections, which can be used to inform the interface design and adaptive agent development.
+
+# Conclusion
+This paper shows that human bosses work best in situations characterized by clarity and Stag-favouring and situation awareness changes with environmental uncertainty (The R Foundation, 2019). Even though, ambiguous contexts evoked higher levels of reported SA, there was no a priori reason why adaptive DisAdv team proved to be more frequently chosen by supervisors. There was a positive relationship between performance and choice accuracy, and the faster the response time the accuracy. The immediate implication is that adaptive teams of agents are not necessarily preferred; in order to enable human-AI teaming, designers need to focus on transparency transparency, training, and good interface indicators to enable supervisors to see the payoff of adaptive agents. The following future study using trial-level data and bigger sample sizes would enable more rigorous research of supervisor-agent coordination strategies (Jost and Jansen, 2022).
+
+\newpage
+# References
+- Bollen, Z., Wyss, A.M., Guizar Rosales, E., Le Houcq Corbi, Z. and Knoch, D. (2025). The role of attitudes and attention in pro-environmental decision-making: An eye-tracking study. *Journal of Environmental Psychology*, 107, p.102776. doi: https://doi.org/10.1016/j.jenvp.2025.102776. 
+- Collins, B.J., Munyon, T.P., Ashkanasy, N., Gallagher, E. and Gallagher, S.A. (2022). Team Decision Making in Crisis: How Affect Asymmetry and Team Process Norms Affect Decision-Making. *Research on Emotion in Organizations*. [online] Available at: https://www.researchgate.net/publication/360082673_Team_Decision_Making_in_Crisis_How_Affect_Asymmetry_and_Team_Process_Norms_Affect_Decision-Making. 
+- Dung, T. and Duong, N.T. (2024). Investigating learning burnout and academic performance among management students: a longitudinal study in English courses. *BMC Psychology*, 12(1). doi: https://doi.org/10.1186/s40359-024-01725-6.  
+- Edwin De Jonge and Mark Van Der Loo (2013). Discussion Paper An introduction to data cleaning with R. [online] Available at: https://cran.r-project.org/doc/contrib/de_Jonge+van_der_Loo-Introduction_to_data_cleaning_with_R.pdf. 
+- Emmanuelle Apartis (2013). Clinical neurophysiology in movement disorders. *Handbook of clinical neurology*, pp.87–92. doi: https://doi.org/10.1016/b978-0-444-52891-9.00008-7. 
+- Endsley, M.R. (1995). Toward a theory of situation awareness in dynamic systems. *Human Factors*. [online] Available at: https://psycnet.apa.org/record/1995-42276-001. 
+- Fang, R., Zhou, Q., Zhou, C., Yuan, S., Wang, K., Li, Q., Zhang, Y. and Li, J. (2025). A Systematic Review of Empirical Studies on Situation Awareness: Perspectives From the Interaction Among Humans, Machines, and the Task Environment. *PsyCh Journal*, 14(5), pp.718–733. doi: https://doi.org/10.1002/pchj.70027. 
+- Griffiths, P., Saville, C., Ball, J., Jones, J., Pattison, N. and Monks, T. (2020). Nursing workload, Nurse Staffing Methodologies & Tools: a Systematic Scoping Review & Discussion. *International Journal of Nursing Studies*, 103(1), pp.1–11. doi: https://doi.org/10.1016/j.ijnurstu.2019.103487. 
+- Hart, S.G. and Staveland, L.E. (1988). Development of NASA-TLX (task load index): Results of empirical and theoretical research. *Advances in Psychology*, 52, pp.139–183. doi: https://doi.org/10.1016/s0166-4115(08)62386-9. 
+- Jost, L. and Jansen, P. (2022). Using linear mixed models to analyze learning processes within sessions improves detection of treatment effects: An exemplary study of chronometric mental rotation. *Methods in Psychology*, 6, p.100092. doi: https://doi.org/10.1016/j.metip.2022.100092. 
+- Juarros-Basterretxea, J., Aonso-Diego, G., Postigo, Á., Montes-Álvarez, P., Menéndez-Aller, Á. and García-Cueto, E. (2024). Post-Hoc Tests in One-Way ANOVA: The Case for Normal Distribution. *Methodology*, 20(2), pp.84–99. doi: https://doi.org/10.5964/meth.11721. 
+- Koopmans, L., Coffeng, J.K., Bernaards, C.M., Boot, C.R., Hildebrandt, V.H., de Vet, H.C. and van der Beek, A.J. (2014). Responsiveness of the individual work performance questionnaire. *BMC Public Health*, 14(1). doi: https://doi.org/10.1186/1471-2458-14-513. 
+- Kotian, H., Varghese, A.L. and Motappa, R. (2022). An R Function for Cronbach’s Alpha Analysis: A Case-Based Approach. *National Journal of Community Medicine*, 13(08), pp.571–575. doi: https://doi.org/10.55489/njcm.130820221149. 
+- Lambdin, C. and Shaffer, V.A. (2009). Are within-subjects designs transparent? *Judgment and Decision Making*, 4(7), pp.544–566. doi: https://doi.org/10.1017/s1930297500001133. 
+- Mascha, E.J. and Vetter, T.R. (2018). Significance, Errors, Power, and Sample Size: The Blocking and Tackling of Statistics. *Anesthesia and Analgesia*, 126(2), pp.691–698. doi: https://doi.org/10.1213/ANE.0000000000002741. 
+- Onnasch, L., Wickens, C.D., Li, H. and Manzey, D. (2013). Human Performance Consequences of Stages and Levels of Automation. *Human Factors*, 56(3), pp.476–488. doi: https://doi.org/10.1177/0018720813501549. 
+- Sanchez, J.I. and De La Torre, P. (1996). A second look at the relationship between rating and behavioral accuracy in performance appraisal. *Journal of Applied Psychology*, 81(1), pp.3–10. doi: https://doi.org/10.1037/0021-9010.81.1.3. 
+- Schmid, D. and Stanton, N.A. (2019). Exploring Bayesian analyses of a small-sample-size factorial design in human systems integration: the effects of pilot incapacitation. *Human-Intelligent Systems Integration*, 1(2-4), pp.71–88. doi: https://doi.org/10.1007/s42454-020-00012-0. 
+- Schmutz, J.B., Outland, N., Kerstan, S., Georganta, E. and Anna-Sophie Ulfert (2024). AI-teaming: Redefining collaboration in the digital era. *Current Opinion in Psychology*, 58, pp.101837–101837. doi: https://doi.org/10.1016/j.copsyc.2024.101837. 
+- Soetewey, A. (2020). Correlation coefficient and correlation test in R. [online] *Stats and R*. Available at: https://statsandr.com/blog/correlation-coefficient-and-correlation-test-in-r/. 
+- Suriya, S. and Nivetha, S. (2023). Interface Design - an overview | *ScienceDirect Topics*. [online] Available at: https://www.sciencedirect.com/topics/computer-science/interface-design. 
+- The R Foundation (2019). What is R? [online] Available at: https://www.r-project.org/about.html. 
+- Vaccaro, M., Almaatouq, A. and Malone, T. (2024). When combinations of humans and AI are useful: A systematic review and meta-analysis. *Nature Human Behaviour*, 8. doi: https://doi.org/10.1038/s41562-024-02024-1. 
+- Wulff, J.N. and Taylor, L. (2024). How and why alpha should depend on sample size: A Bayesian-frequentist compromise for significance testing. *Strategic Organization*. doi: https://doi.org/10.1177/14761270231214429. 
+- Yang, Z., He, L. and Huang, T. (2024). Powering Pro-Environment Behavior: The Impact of Unlocking Reward Strategy on Pro-Environmental Behavior. *Sustainability*, 16(21), p.9561. doi: https://doi.org/10.3390/su16219561. 

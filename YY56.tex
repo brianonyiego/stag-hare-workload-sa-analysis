@@ -1,0 +1,1777 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={UntitledHuman Supervision of Multi-Agent Reinforcement-Learning Teams: Selecting Teams across Environments with Varying Risk of Stag Illness},
+  pdfauthor={Student name:},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{UntitledHuman Supervision of Multi-Agent Reinforcement-Learning
+Teams: Selecting Teams across Environments with Varying Risk of Stag
+Illness}
+\author{Student name:}
+\date{2026-01-11}
+
+\begin{document}
+\maketitle
+
+\section{Abstract}\label{abstract}
+
+This paper has analyzed the selection of one out of three pre-trained
+multi-agent reinforcement-learning teams (Stag, Hare, DisAdv) by human
+supervisors in presented environments that differ in the likelihood of
+the presence of high-reward stags who are sick (0, 30, 90). Each of the
+thirty human supervisors was taken through nine ecology trials and gave
+workload (NASA-TLX), situation awareness (SART), and
+decision/behavioural measures (choice accuracy, response latency,
+team-selection clicks, and performance score). The descriptive statistic
+reveals that the mean performance grades are 691.2 ( Extreme Hare, E),
+751.5 ( Ambiguous, O) and 795.6 ( Extreme Stag, R). One-way ANOVA showed
+that there was a significant difference between condition and
+performance as F(2,27) = 4.49, p = 0.0207, and post-hoc tests showed
+that significantly better performance was observed in R than in E (mean
+difference = 104.4, p = 0.0159). There was also a difference in
+situation awareness (SART), F(2,27) = 5.24, p = 0.012, O \textgreater{}
+E (diff = 4.9, p = 0.0177) and R \textgreater{} E (diff = 4.4, p =
+0.0352). There was no significant difference between condition in
+workload (NASA-TLX total), F(2,27) =1.98, p=0.158; Bayesian ANOVA
+provided BF=0.733 (evidence slightly favouring the null). Correlational
+results depict performance to have positive relationship with choice
+accuracy ( r = 0.64, p = 0.001) and negative relationship with choice
+accuracy response time ( r = -0.446, p = 0.014). Findings suggest
+supervisors would make the best decisions and make them quicker in
+unambiguous Stag-favouring conditions; ambiguous conditions would cause
+more reported SA, but no higher choice of the adaptive DisAdv team. It
+has implications to human-agent teaming, transparency and training.
+
+\section{1. Introduction}\label{introduction}
+
+In contemporary socio-technical systems, human supervisors should
+choose, control, and supervise autonomous agents in which the learned
+behaviour of the agents can vary significantly depending on the context
+of training (Vaccaro, Almaatouq \& Malone, 2021; Schmutz et al., 2023).
+Multi-agent reinforcement learning (MARL) is a model where agents
+trained in an environment where they are directed to pursue either
+rewards (e.g.~catching stags) or avoidance (e.g.~avoiding stags when
+they are often sick) devises specialised strategies which are only
+suitable in particular environmental situations. It is possible that a
+hybrid or adaptive team (in this case called DisAdv) which is able to
+sense the changing conditions and exchange information among agents can
+be useful in ambiguous environments (Onnasch et al., 2014; Schmid and
+Stanton, 2019). Nevertheless, successful human supervision is not based
+solely on agent capacity but also on the situation awareness (SA) of the
+human, perceived workload and capacity to interpret (and trust) agent
+behaviour (Endsley, 1995; Hart and Staveland, 1988). This paper
+discusses the skills of human supervisors to choose the best team (Stag,
+Hare, DisAdv) in the environment with different stag-illness likelihood
+(0\%, 30, 90). The experimental variables were: task performance (mark),
+the correctness of the choice (proprobability of selecting team to be
+the optimal team as per the environment), response latency (time to
+select a team after the environment change), team-selection activity,
+perceived workload (NASA-TLX subscales and total), and situation
+awareness (SART). The design enabled us to test the hypothesis: (a)
+supervisors will perform better in clear (extreme) vs ambiguous
+environments; (b) supervisors will choose adaptive teams (DisAdv) in an
+ambiguous environment; and (c) supervisors will have predictable
+relationships between SA, workload and decision performance.
+
+\subsection{1.1 Research Questions and
+Hypotheses}\label{research-questions-and-hypotheses}
+
+Based on the literature above, we were able to develop the following
+testable hypotheses: I. \textbf{H1:} The accuracy and performance of
+choices will be better in extreme environments (0\% and 90\%
+stag-illness) than in the ambiguous environment (30\%).\\
+II. \textbf{H2:} The adaptive DisAdv team will be more frequently chosen
+by supervisors in the ambiguous environment compared to extreme
+environments.\\
+III. \textbf{H3:} In ambiguous environments, the selection latency (time
+to click team selection) will be extended as compared to extreme
+environments.\\
+IV. \textbf{H4:} The accuracy of choice and short response times will
+have a positive and negative relationship respectively with higher
+situation awareness (SART scores).\\
+V. \textbf{H5:} The self-reported workload (NASA-TLX total) will be
+higher in the ambiguous setting and will have a negative relationship
+with choice accuracy.\\
+These hypotheses are based on the cognitive-systems studies that
+indicate that clarity of environmental cues decreases the demands on
+processing and enhances monitoring (Onnasch et al., 2014) and ambiguity
+intensifies the necessity of adaptive strategies and imposes more
+demands on SA (Endsley, 1995; Schmid and Stanton, 2019).
+
+\section{2. Methods}\label{methods}
+
+\subsection{2.1 Participants}\label{participants}
+
+The study adopted within-subjects design, and every participant was
+subjected to all three types of environment, and there were three
+replicas of each. The defined environment conditions were 0\% of Stag
+healthy and 30 percent of ambiguous and 90 percent of Stag ill.~The
+participants had to choose one of three pre-trained AI teams, in each of
+the three environments: the Stag team that employed a reward-seeking
+policy; the Hare team that was risk-averse; and the DisAdv team that was
+an adaptive team where one agent could detect and share stag illness
+information. Before the task commenced the participants were given
+instruction as to the workflow and the rules that applied to the
+environments so that they were aware of how the environment changes are
+reflected in the best team decisions.
+
+\subsection{2.2 Experimental Design and
+Materials}\label{experimental-design-and-materials}
+
+The experiment operated using within subject design, that is, each
+subject was subjected to all the three types of environments and three
+replicas of each type were used (Lambdin and Shaffer, 2009). The
+conditions of the environment were characterized as 0 percent of Stag
+healthy, 30 per cent of ambiguous, and 90 percent of Stag ill.~In each
+of the three environments, participants were needed to choose one of
+three pre-trained AI teams, including the Stag team, which pursued a
+reward-seeking strategy, the Hare team, which avoided risks, and the
+DisAdv team, which was an adaptive team where one agent could learn
+about stag illness and exchange information on it. The participants were
+pre-informed of the workflow and the principles which governed the
+environments, so that before starting with the task, they knew the
+effect that environment manipulation had on the optimal team decisions
+(Collins et al., 2022). A number of outcome measures were observed
+during the task. Performance score was the numeric award that each
+participant received in the exposure to the environment, and was put
+down in FullData sheet and FullData2 sheet (Koopmans et al., 2014). The
+measure of the accuracy of the choice consisted in the percentage of the
+team selections that corresponded to the best team in the environment
+0\% environments were best handled by the Stag team, 30\% by the DisAdv
+team and 90\% by the Hare team. Latency was measured by Time to respond
+to the environment which was the number of seconds in which the change
+in environment occurred to the time the participant selected a team
+(Emmanuelle Apartis, 2013). The team selection clicks reported the
+number of times the participants interacted with the selection button
+which could be checking or switching teams. The NASA-TLX was used to
+measure subjective workload, and it has six subscales (mental demand,
+physical demand, temporal demand, performance, effort, and frustration)
+and a total score that was calculated as the mean of the subscales. The
+SART was used to test the situation awareness which produced a total
+score per participant. All data were extracted in the Excel sheet, in
+the copy of Expt2\_final.xlsx, under the Workload, SA, FullData, and
+FullData2 sheets.
+
+\subsection{Data preparation and analysis
+plan}\label{data-preparation-and-analysis-plan}
+
+In R, data were read and cleaned using FullData2 had many columns that
+were imported as character, and they were coerced to numeric (and NA
+coping where coercion was needed) De Jonge and Van Der Loo, 2013). In
+the case of factors, the participant IDs were transformed to them.
+Analyses involved descriptive statistics, visualisations, one-way ANOVAs
+(condition as factor), Tukey post-hoc, Levene and ShapiroWilk test of
+assumptions, Bayesian ANOVA (BayesFactor package) of workload,
+individual ANOVA of NASA-TLX subscales, polychoric correlation of SA
+items (attempted), analysis of reliability of NASA-TLX subscales
+(Cronbachs alpha) and Pearson correlation of key continuous variables
+(score, NASA-TLX, SART, choice accuracy, response time
+(Juarros-Basterretxea et al., 2024). The tests of statistics were all
+performed with α =.05. In the case of Bayesian Interpretation, standard
+interpretation (e.g., BF10, which is greater than 3, is moderate
+evidence in favor of H1) was made (Wulff and Taylor, 2024).
+
+\section{Results}\label{results}
+
+All descriptive statistics and inferential findings below are directly
+taken off the R analysis results as outlined above. \#\# Descriptive
+statistics Descriptive statistics of total workload (as the NASA-TLX
+total score) showed that there was a variation between conditions. The
+highest workload was recorded in the Extreme\_Hare condition ( E; M =
+46.2, SD = 15.1, n = 10), then the Extreme\_Stag condition ( R; M =
+34.2, SD = 11.0, n = 10) and the Extreme condition ( O; M = 38.1, SD =
+14.8, n = 10). Analysis of NASA-TLX subscale indicated that mental
+demand was greatest in the E condition (M= 57.0), a bit lesser in O (M=
+54.0), and the least in R (M= 48.0). A similar pattern was applied to
+effort, where E = 59, O = 52 and R =34. Conditional selective summary of
+these subscale means is as shown below.
+
+The situation awareness, as assessed by way of SART total score,
+revealed the opposite situation, with the lowest scores in E (M = 10.2,
+SD = 4.24, n = 10) and with the highest scores in O (M = 15.1, SD =
+2.88, n = 10) and R (M = 14.6, SD = 3.92, n = 10). According to
+FullData, the Scores in the areas of performance were lowest in
+Extreme\_Hare (E: M = 691.2, SD = 88.8), higher in the category of
+Ambiguous (O: M = 752.0, SD = 95.7), and largest in the category of
+Extreme Stag (R: M = 795.6, SD = 36.0). The means of FullData2 were
+found to support these individual-participant means (E = 691.0; O =
+752.0; R = 796.0).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# ==============================}
+\CommentTok{\# 1. Load \& Install Packages}
+\CommentTok{\# ==============================}
+\FunctionTok{library}\NormalTok{(tidyverse)    }\CommentTok{\# Data manipulation \& ggplot2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'tidyverse' was built under R version 4.3.3
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: package 'tidyr' was built under R version 4.3.3
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: package 'readr' was built under R version 4.3.3
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: package 'dplyr' was built under R version 4.3.3
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: package 'stringr' was built under R version 4.3.3
+\end{verbatim}
+
+\begin{verbatim}
+## -- Attaching core tidyverse packages ------------------------ tidyverse 2.0.0 --
+## v dplyr     1.1.4     v readr     2.1.5
+## v forcats   1.0.0     v stringr   1.5.1
+## v ggplot2   4.0.0     v tibble    3.2.1
+## v lubridate 1.9.3     v tidyr     1.3.1
+## v purrr     1.0.2     
+## -- Conflicts ------------------------------------------ tidyverse_conflicts() --
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()
+## i Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(janitor)      }\CommentTok{\# Cleaning column names}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'janitor' was built under R version 4.3.3
+\end{verbatim}
+
+\begin{verbatim}
+## 
+## Attaching package: 'janitor'
+## 
+## The following objects are masked from 'package:stats':
+## 
+##     chisq.test, fisher.test
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(skimr)        }\CommentTok{\# Overview of data}
+\FunctionTok{library}\NormalTok{(lme4)         }\CommentTok{\# Linear mixed{-}effects models}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'lme4' was built under R version 4.3.3
+\end{verbatim}
+
+\begin{verbatim}
+## Loading required package: Matrix
+## 
+## Attaching package: 'Matrix'
+## 
+## The following objects are masked from 'package:tidyr':
+## 
+##     expand, pack, unpack
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in check_dep_version(): ABI version mismatch: 
+## lme4 was built with Matrix ABI version 1
+## Current Matrix ABI version is 0
+## Please re-install lme4 from source or restore original 'Matrix' package
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(lmerTest)     }\CommentTok{\# p{-}values for lme4 models}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'lmerTest' was built under R version 4.3.3
+\end{verbatim}
+
+\begin{verbatim}
+## 
+## Attaching package: 'lmerTest'
+## 
+## The following object is masked from 'package:lme4':
+## 
+##     lmer
+## 
+## The following object is masked from 'package:stats':
+## 
+##     step
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(BayesFactor)  }\CommentTok{\# Bayesian analysis}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'BayesFactor' was built under R version 4.3.3
+\end{verbatim}
+
+\begin{verbatim}
+## Loading required package: coda
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: package 'coda' was built under R version 4.3.3
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in .recacheSubclasses(def@className, def, env): undefined subclass
+## "ndiMatrix" of class "replValueSp"; definition not updated
+\end{verbatim}
+
+\begin{verbatim}
+## ************
+## Welcome to BayesFactor 0.9.12-4.7. If you have questions, please contact Richard Morey (richarddmorey@gmail.com).
+## 
+## Type BFManual() to open the manual.
+## ************
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(psych)        }\CommentTok{\# Tetrachoric correlation}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'psych' was built under R version 4.3.3
+\end{verbatim}
+
+\begin{verbatim}
+## 
+## Attaching package: 'psych'
+## 
+## The following objects are masked from 'package:ggplot2':
+## 
+##     %+%, alpha
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(polycor)      }\CommentTok{\# Polychoric correlation}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Attaching package: 'polycor'
+## 
+## The following object is masked from 'package:psych':
+## 
+##     polyserial
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(reshape2)     }\CommentTok{\# Data reshaping for plotting}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'reshape2' was built under R version 4.3.3
+\end{verbatim}
+
+\begin{verbatim}
+## 
+## Attaching package: 'reshape2'
+## 
+## The following object is masked from 'package:tidyr':
+## 
+##     smiths
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(readxl)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'readxl' was built under R version 4.3.3
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(kableExtra)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'kableExtra' was built under R version 4.3.3
+\end{verbatim}
+
+\begin{verbatim}
+## 
+## Attaching package: 'kableExtra'
+## 
+## The following object is masked from 'package:dplyr':
+## 
+##     group_rows
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# ==============================}
+\CommentTok{\# 2. Load Excel Data}
+\CommentTok{\# ==============================}
+\NormalTok{file\_path }\OtherTok{\textless{}{-}} \StringTok{"C:/Users/brian/Downloads/Copy of Expt2\_final.xlsx"}
+
+\NormalTok{workload  }\OtherTok{\textless{}{-}} \FunctionTok{read\_excel}\NormalTok{(file\_path, }\AttributeTok{sheet =} \StringTok{"Workload"}\NormalTok{)  }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{clean\_names}\NormalTok{()}
+\NormalTok{sa        }\OtherTok{\textless{}{-}} \FunctionTok{read\_excel}\NormalTok{(file\_path, }\AttributeTok{sheet =} \StringTok{"SA"}\NormalTok{)        }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{clean\_names}\NormalTok{()}
+\NormalTok{fulldata  }\OtherTok{\textless{}{-}} \FunctionTok{read\_excel}\NormalTok{(file\_path, }\AttributeTok{sheet =} \StringTok{"FullData"}\NormalTok{)  }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{clean\_names}\NormalTok{()}
+\NormalTok{fulldata2 }\OtherTok{\textless{}{-}} \FunctionTok{read\_excel}\NormalTok{(file\_path, }\AttributeTok{sheet =} \StringTok{"FullData2"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{clean\_names}\NormalTok{()}
+
+\NormalTok{fulldata2 }\OtherTok{\textless{}{-}}\NormalTok{ fulldata2 }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\FunctionTok{across}\NormalTok{(}\FunctionTok{c}\NormalTok{(score, team\_selection\_clicks, choice\_accuracy, time\_respond\_env,}
+\NormalTok{                  proportion\_stag, proportion\_hare, proportion\_dis\_adv,}
+\NormalTok{                  nasa\_tlx, sart), as.numeric))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: There were 9 warnings in `mutate()`.
+## The first warning was:
+## i In argument: `across(...)`.
+## Caused by warning:
+## ! NAs introduced by coercion
+## i Run `dplyr::last_dplyr_warnings()` to see the 8 remaining warnings.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Data loaded successfully!}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Data loaded successfully!
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# ==============================}
+\CommentTok{\# 3. NASA{-}TLX Table by Condition}
+\CommentTok{\# ==============================}
+\NormalTok{tlx\_table }\OtherTok{\textless{}{-}}\NormalTok{ workload }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{select}\NormalTok{(condition, mental\_demand, effort, physical\_demand) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(condition) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}
+    \AttributeTok{Mental\_Demand =} \FunctionTok{round}\NormalTok{(}\FunctionTok{mean}\NormalTok{(mental\_demand, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{), }\DecValTok{1}\NormalTok{),}
+    \AttributeTok{Effort        =} \FunctionTok{round}\NormalTok{(}\FunctionTok{mean}\NormalTok{(effort, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{), }\DecValTok{1}\NormalTok{),}
+    \AttributeTok{Physical\_Demand =} \FunctionTok{round}\NormalTok{(}\FunctionTok{mean}\NormalTok{(physical\_demand, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{), }\DecValTok{1}\NormalTok{),}
+    \AttributeTok{.groups =} \StringTok{\textquotesingle{}drop\textquotesingle{}}
+\NormalTok{  ) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{condition =} \FunctionTok{case\_when}\NormalTok{(}
+\NormalTok{    condition }\SpecialCharTok{==} \StringTok{"Extreme\_Hare"}  \SpecialCharTok{\textasciitilde{}} \StringTok{"E"}\NormalTok{,}
+\NormalTok{    condition }\SpecialCharTok{==} \StringTok{"Ambiguous"}     \SpecialCharTok{\textasciitilde{}} \StringTok{"O"}\NormalTok{,}
+\NormalTok{    condition }\SpecialCharTok{==} \StringTok{"Extreme\_Stag"}  \SpecialCharTok{\textasciitilde{}} \StringTok{"R"}\NormalTok{,}
+    \ConstantTok{TRUE} \SpecialCharTok{\textasciitilde{}}\NormalTok{ condition}
+\NormalTok{  )) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{pivot\_longer}\NormalTok{(}\AttributeTok{cols =} \SpecialCharTok{{-}}\NormalTok{condition, }\AttributeTok{names\_to =} \StringTok{"Subscale"}\NormalTok{, }\AttributeTok{values\_to =} \StringTok{"Mean"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{pivot\_wider}\NormalTok{(}\AttributeTok{names\_from =}\NormalTok{ condition, }\AttributeTok{values\_from =}\NormalTok{ Mean)}
+
+\NormalTok{tlx\_table }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{kable}\NormalTok{(}\AttributeTok{caption =} \StringTok{"Table 1: NASA{-}TLX Subscale Means by Condition"}\NormalTok{, }\AttributeTok{booktabs =} \ConstantTok{TRUE}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{kable\_styling}\NormalTok{(}\AttributeTok{full\_width =} \ConstantTok{FALSE}\NormalTok{, }\AttributeTok{position =} \StringTok{"center"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[t]{lrrr}
+\caption{\label{tab:full-analysis}Table 1: NASA-TLX Subscale Means by Condition}\\
+\toprule
+Subscale & E & O & R\\
+\midrule
+Mental\_Demand & 57.0 & 54.0 & 48\\
+Effort & 59.0 & 52.0 & 34\\
+Physical\_Demand & 28.5 & 16.5 & 13\\
+\bottomrule
+\end{longtable}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# ==============================}
+\CommentTok{\# 4. Descriptive Statistics}
+\CommentTok{\# ==============================}
+\NormalTok{workload\_summary }\OtherTok{\textless{}{-}}\NormalTok{ workload }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(condition) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}
+    \AttributeTok{n =} \FunctionTok{n}\NormalTok{(),}
+    \AttributeTok{mean\_total\_score =} \FunctionTok{mean}\NormalTok{(total\_score\_sum\_6, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{),}
+    \AttributeTok{sd\_total\_score =} \FunctionTok{sd}\NormalTok{(total\_score\_sum\_6, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{),}
+    \AttributeTok{se\_total\_score =}\NormalTok{ sd\_total\_score }\SpecialCharTok{/} \FunctionTok{sqrt}\NormalTok{(n),}
+    \AttributeTok{.groups =} \StringTok{\textquotesingle{}drop\textquotesingle{}}
+\NormalTok{  )}
+
+\NormalTok{fulldata\_summary }\OtherTok{\textless{}{-}}\NormalTok{ fulldata }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(condition) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}
+    \AttributeTok{n =} \FunctionTok{n}\NormalTok{(),}
+    \AttributeTok{mean\_score =} \FunctionTok{mean}\NormalTok{(score, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{),}
+    \AttributeTok{sd\_score =} \FunctionTok{sd}\NormalTok{(score, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{),}
+    \AttributeTok{se\_score =}\NormalTok{ sd\_score }\SpecialCharTok{/} \FunctionTok{sqrt}\NormalTok{(n),}
+    \AttributeTok{.groups =} \StringTok{\textquotesingle{}drop\textquotesingle{}}
+\NormalTok{  )}
+
+\NormalTok{sa\_summary }\OtherTok{\textless{}{-}}\NormalTok{ sa }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(demand\_condition) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}
+    \AttributeTok{n =} \FunctionTok{n}\NormalTok{(),}
+    \AttributeTok{mean\_sa\_total =} \FunctionTok{mean}\NormalTok{(sa\_total, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{),}
+    \AttributeTok{sd\_sa\_total =} \FunctionTok{sd}\NormalTok{(sa\_total, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{),}
+    \AttributeTok{se\_sa\_total =}\NormalTok{ sd\_sa\_total }\SpecialCharTok{/} \FunctionTok{sqrt}\NormalTok{(n),}
+    \AttributeTok{.groups =} \StringTok{\textquotesingle{}drop\textquotesingle{}}
+\NormalTok{  )}
+
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Descriptive statistics computed.}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Descriptive statistics computed.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# ==============================}
+\CommentTok{\# 5. Plots}
+\CommentTok{\# ==============================}
+\CommentTok{\# Plot 1: Workload Total Score}
+\NormalTok{p1 }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{(workload, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ condition, }\AttributeTok{y =}\NormalTok{ total\_score\_sum\_6, }\AttributeTok{fill =}\NormalTok{ condition)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_boxplot}\NormalTok{(}\AttributeTok{alpha =} \FloatTok{0.7}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{geom\_jitter}\NormalTok{(}\AttributeTok{width =} \FloatTok{0.2}\NormalTok{, }\AttributeTok{alpha =} \FloatTok{0.3}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme\_minimal}\NormalTok{(}\AttributeTok{base\_size =} \DecValTok{12}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Workload Total Score by Condition"}\NormalTok{, }\AttributeTok{x =} \StringTok{"Condition"}\NormalTok{, }\AttributeTok{y =} \StringTok{"Total Score (sum/6)"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme}\NormalTok{(}\AttributeTok{legend.position =} \StringTok{"none"}\NormalTok{)}
+\FunctionTok{print}\NormalTok{(p1)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{YY56_files/figure-latex/full-analysis-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Plot 2: NASA{-}TLX Subscales}
+\NormalTok{workload\_melt }\OtherTok{\textless{}{-}}\NormalTok{ workload }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{select}\NormalTok{(participant, condition, mental\_demand, physical\_demand, temporal\_demand,}
+\NormalTok{         performance, effort, frustration) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{pivot\_longer}\NormalTok{(}\AttributeTok{cols =}\NormalTok{ mental\_demand}\SpecialCharTok{:}\NormalTok{frustration, }\AttributeTok{names\_to =} \StringTok{"subscale"}\NormalTok{, }\AttributeTok{values\_to =} \StringTok{"value"}\NormalTok{)}
+
+\NormalTok{p2 }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{(workload\_melt, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ subscale, }\AttributeTok{y =}\NormalTok{ value, }\AttributeTok{fill =}\NormalTok{ condition)) }\SpecialCharTok{+}
+  \FunctionTok{stat\_summary}\NormalTok{(}\AttributeTok{fun =}\NormalTok{ mean, }\AttributeTok{geom =} \StringTok{"bar"}\NormalTok{, }\AttributeTok{position =} \FunctionTok{position\_dodge}\NormalTok{(}\FloatTok{0.8}\NormalTok{), }\AttributeTok{alpha =} \FloatTok{0.8}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{stat\_summary}\NormalTok{(}\AttributeTok{fun.data =}\NormalTok{ mean\_se, }\AttributeTok{geom =} \StringTok{"errorbar"}\NormalTok{, }\AttributeTok{width =} \FloatTok{0.2}\NormalTok{, }\AttributeTok{position =} \FunctionTok{position\_dodge}\NormalTok{(}\FloatTok{0.8}\NormalTok{)) }\SpecialCharTok{+}
+  \FunctionTok{theme\_minimal}\NormalTok{(}\AttributeTok{base\_size =} \DecValTok{12}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Mean NASA{-}TLX Subscale Scores by Condition"}\NormalTok{, }\AttributeTok{x =} \StringTok{"Subscale"}\NormalTok{, }\AttributeTok{y =} \StringTok{"Mean Score"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme}\NormalTok{(}\AttributeTok{axis.text.x =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{angle =} \DecValTok{45}\NormalTok{, }\AttributeTok{hjust =} \DecValTok{1}\NormalTok{))}
+\FunctionTok{print}\NormalTok{(p2)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{YY56_files/figure-latex/full-analysis-2.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Plot 3: Performance Scores}
+\NormalTok{p3 }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{(fulldata, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ condition, }\AttributeTok{y =}\NormalTok{ score, }\AttributeTok{fill =}\NormalTok{ condition)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_violin}\NormalTok{(}\AttributeTok{alpha =} \FloatTok{0.6}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{geom\_boxplot}\NormalTok{(}\AttributeTok{width =} \FloatTok{0.2}\NormalTok{, }\AttributeTok{alpha =} \FloatTok{0.8}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme\_minimal}\NormalTok{(}\AttributeTok{base\_size =} \DecValTok{12}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Performance Scores by Condition"}\NormalTok{, }\AttributeTok{x =} \StringTok{"Condition"}\NormalTok{, }\AttributeTok{y =} \StringTok{"Score"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme}\NormalTok{(}\AttributeTok{legend.position =} \StringTok{"none"}\NormalTok{)}
+\FunctionTok{print}\NormalTok{(p3)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{YY56_files/figure-latex/full-analysis-3.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Plot 4: Correlation Matrix}
+\NormalTok{cor\_data }\OtherTok{\textless{}{-}}\NormalTok{ fulldata }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{select}\NormalTok{(score, nasa\_tlx, sart, choice\_accuracy, time\_respond\_env)}
+\NormalTok{cor\_matrix }\OtherTok{\textless{}{-}} \FunctionTok{cor}\NormalTok{(cor\_data, }\AttributeTok{use =} \StringTok{"pairwise.complete.obs"}\NormalTok{)}
+\NormalTok{cor\_melt }\OtherTok{\textless{}{-}} \FunctionTok{melt}\NormalTok{(cor\_matrix)}
+
+\NormalTok{p4 }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{(cor\_melt, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Var1, }\AttributeTok{y =}\NormalTok{ Var2, }\AttributeTok{fill =}\NormalTok{ value)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_tile}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{geom\_text}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{label =} \FunctionTok{round}\NormalTok{(value, }\DecValTok{2}\NormalTok{)), }\AttributeTok{color =} \StringTok{"black"}\NormalTok{, }\AttributeTok{size =} \DecValTok{3}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{scale\_fill\_gradient2}\NormalTok{(}\AttributeTok{low =} \StringTok{"blue"}\NormalTok{, }\AttributeTok{mid =} \StringTok{"white"}\NormalTok{, }\AttributeTok{high =} \StringTok{"red"}\NormalTok{, }\AttributeTok{midpoint =} \DecValTok{0}\NormalTok{, }\AttributeTok{limit =} \FunctionTok{c}\NormalTok{(}\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{)) }\SpecialCharTok{+}
+  \FunctionTok{theme\_minimal}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Correlation Matrix: Performance Measures"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme}\NormalTok{(}\AttributeTok{axis.text.x =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{angle =} \DecValTok{45}\NormalTok{, }\AttributeTok{hjust =} \DecValTok{1}\NormalTok{))}
+\FunctionTok{print}\NormalTok{(p4)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{YY56_files/figure-latex/full-analysis-4.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# ==============================}
+\CommentTok{\# 6. Statistical Analyses}
+\CommentTok{\# ==============================}
+\CommentTok{\# Convert factors}
+\NormalTok{workload}\SpecialCharTok{$}\NormalTok{condition }\OtherTok{\textless{}{-}} \FunctionTok{as.factor}\NormalTok{(workload}\SpecialCharTok{$}\NormalTok{condition)}
+\NormalTok{sa}\SpecialCharTok{$}\NormalTok{demand\_condition }\OtherTok{\textless{}{-}} \FunctionTok{as.factor}\NormalTok{(sa}\SpecialCharTok{$}\NormalTok{demand\_condition)}
+\NormalTok{fulldata}\SpecialCharTok{$}\NormalTok{condition }\OtherTok{\textless{}{-}} \FunctionTok{as.factor}\NormalTok{(fulldata}\SpecialCharTok{$}\NormalTok{condition)}
+
+\CommentTok{\# ANOVA: Workload Total Score}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{{-}{-}{-} ANOVA: Workload Total Score {-}{-}{-}}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+--- ANOVA: Workload Total Score ---
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{aov\_workload }\OtherTok{\textless{}{-}} \FunctionTok{aov}\NormalTok{(total\_score\_sum\_6 }\SpecialCharTok{\textasciitilde{}}\NormalTok{ condition, }\AttributeTok{data =}\NormalTok{ workload)}
+\FunctionTok{print}\NormalTok{(}\FunctionTok{summary}\NormalTok{(aov\_workload))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+        Df Sum Sq Mean Sq F value Pr(>F)
+\end{verbatim}
+
+condition 2 747 373.6 1.976 0.158 Residuals 27 5106 189.1
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Post{-}hoc Tukey}
+\NormalTok{tukey\_workload }\OtherTok{\textless{}{-}} \FunctionTok{TukeyHSD}\NormalTok{(aov\_workload)}
+\FunctionTok{print}\NormalTok{(tukey\_workload)}
+\end{Highlighting}
+\end{Shaded}
+
+Tukey multiple comparisons of means 95\% family-wise confidence level
+
+Fit: aov(formula = total\_score\_sum\_6 \textasciitilde{} condition,
+data = workload)
+
+\$condition diff lwr upr p adj O-E -8.083333 -23.33159 7.164922
+0.3996422 R-E -11.983333 -27.23159 3.264922 0.1446954 R-O -3.900000
+-19.14825 11.348255 0.8027425
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Effect size}
+\ControlFlowTok{if}\NormalTok{(}\FunctionTok{require}\NormalTok{(effectsize, }\AttributeTok{quietly =} \ConstantTok{TRUE}\NormalTok{)) \{}
+\NormalTok{  eta\_sq }\OtherTok{\textless{}{-}} \FunctionTok{eta\_squared}\NormalTok{(aov\_workload)}
+  \FunctionTok{print}\NormalTok{(eta\_sq)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Attaching package: 'effectsize'
+## 
+## The following object is masked from 'package:psych':
+## 
+##     phi
+## 
+## For one-way between subjects designs, partial eta squared is equivalent
+##   to eta squared. Returning eta squared.
+\end{verbatim}
+
+\section{Effect Size for ANOVA}\label{effect-size-for-anova}
+
+\subsection{Parameter \textbar{} Eta2 \textbar{} 95\%
+CI}\label{parameter-eta2-95-ci}
+
+condition \textbar{} 0.13 \textbar{} {[}0.00, 1.00{]}
+
+\begin{itemize}
+\tightlist
+\item
+  One-sided CIs: upper bound fixed at {[}1.00{]}.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# ANOVA: Situation Awareness}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{{-}{-}{-} ANOVA: Situation Awareness {-}{-}{-}}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+--- ANOVA: Situation Awareness ---
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{aov\_sa }\OtherTok{\textless{}{-}} \FunctionTok{aov}\NormalTok{(sa\_total }\SpecialCharTok{\textasciitilde{}}\NormalTok{ demand\_condition, }\AttributeTok{data =}\NormalTok{ sa)}
+\FunctionTok{print}\NormalTok{(}\FunctionTok{summary}\NormalTok{(aov\_sa))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+             Df Sum Sq Mean Sq F value Pr(>F)  
+\end{verbatim}
+
+demand\_condition 2 145.4 72.70 5.236 0.012 * Residuals 27 374.9 13.89\\
+--- Signif. codes: 0 `\emph{\textbf{' 0.001 '}' 0.01 '}' 0.05 `.' 0.1 '
+' 1
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{tukey\_sa }\OtherTok{\textless{}{-}} \FunctionTok{TukeyHSD}\NormalTok{(aov\_sa)}
+\FunctionTok{print}\NormalTok{(tukey\_sa)}
+\end{Highlighting}
+\end{Shaded}
+
+Tukey multiple comparisons of means 95\% family-wise confidence level
+
+Fit: aov(formula = sa\_total \textasciitilde{} demand\_condition, data =
+sa)
+
+\$demand\_condition diff lwr upr p adj O-E 4.9 0.7681882 9.031812
+0.0176728 R-E 4.4 0.2681882 8.531812 0.0351504 R-O -0.5 -4.6318118
+3.631812 0.9516749
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# ANOVA: Performance}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{{-}{-}{-} ANOVA: Performance Scores {-}{-}{-}}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+--- ANOVA: Performance Scores ---
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{aov\_perf }\OtherTok{\textless{}{-}} \FunctionTok{aov}\NormalTok{(score }\SpecialCharTok{\textasciitilde{}}\NormalTok{ condition, }\AttributeTok{data =}\NormalTok{ fulldata)}
+\FunctionTok{print}\NormalTok{(}\FunctionTok{summary}\NormalTok{(aov\_perf))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+        Df Sum Sq Mean Sq F value Pr(>F)  
+\end{verbatim}
+
+condition 2 54934 27467 4.492 0.0207 * Residuals 27 165098 6115\\
+--- Signif. codes: 0 `\emph{\textbf{' 0.001 '}' 0.01 '}' 0.05 `.' 0.1 '
+' 1
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{tukey\_perf }\OtherTok{\textless{}{-}} \FunctionTok{TukeyHSD}\NormalTok{(aov\_perf)}
+\FunctionTok{print}\NormalTok{(tukey\_perf)}
+\end{Highlighting}
+\end{Shaded}
+
+Tukey multiple comparisons of means 95\% family-wise confidence level
+
+Fit: aov(formula = score \textasciitilde{} condition, data = fulldata)
+
+\$condition diff lwr upr p adj O-E 60.3 -26.40704 147.007 0.2146782 R-E
+104.4 17.69296 191.107 0.0158937 R-O 44.1 -42.60704 130.807 0.4288152
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{cat}\NormalTok{(}\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{=== ANALYSIS COMPLETE ===}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+=== ANALYSIS COMPLETE === The situation awareness, as assessed by way of
+SART total score, revealed the opposite situation, with the lowest
+scores in E (M = 10.2, SD = 4.24, n = 10) and with the highest scores in
+O (M = 15.1, SD = 2.88, n = 10) and R (M = 14.6, SD = 3.92, n = 10).
+According to FullData, the Scores in the areas of performance were
+lowest in Extreme\_Hare (E: M = 691.2, SD = 88.8), higher in the
+category of Ambiguous (O: M = 752.0, SD = 95.7), and largest in the
+category of Extreme Stag (R: M = 795.6, SD = 36.0). The means of
+FullData2 were found to support these individual-participant means (E =
+691.0; O = 752.0; R = 796.0).
+
+\#\#Inferential statistics \#\#\# Workload (NASA-TLX total) One-way
+ANOVA of the differences in NASA-TLX total scores at different
+conditions showed no significance, F(2,27) = 1.98, p = 0.158.
+Homogeneity of variance (Levene, p = 0.774) and approximate normality of
+residuals (Shapiro Wilk, W = 0.964, p = 0.388) was checked by assumption
+checks. All post-hoc Tukey comparisons were not significant, such as O
+-E (diff = -8.08, p = 0.400) and R -E ( diff = -11.98, p = 0.145). Cohen
+effect sizes of the workload comparisons were varied with the biggest
+value of the d effect being observed between R vs E (d = -0.908) and the
+least value observed between Extreme\_Stag vs Extreme Hare (d = 0.393).
+Analysis under Bayesian ANOVA gave a Bayes factor of 0.733 ( 0.01\%)
+which had weak evidence to support the null model against the condition
+model, which was similar to the non-significant ANOVA results. Figure 1
+will give the boxplot of the total workload scores across conditions and
+indicate the patterns of distribution. The mean score of the
+Extreme\_Hare (E) condition is 691.2 (SD = 88.8), and the mean score of
+the Ambiguous (O) condition is 752.0 (SD = 95.7), and the latter is
+slightly higher, which may be attributed to an anticipated higher
+effort, potentially caused by uncertainty in the dynamics of the task.
+And the highest mean score which was 796.0 (SD = 36.0) but with a
+significantly smaller standard deviation was found in the Extreme\_Stag
+(R) condition which implies that the mean workload rating of the
+participants was less variable when the environment was evidently biased
+towards the high-reward Stag team (Dung and Duong, 2024).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# ==============================}
+\CommentTok{\# 3.2.1 Workload (NASA{-}TLX total)}
+\CommentTok{\# ==============================}
+
+\FunctionTok{library}\NormalTok{(car)        }\CommentTok{\# Levene\textquotesingle{}s test}
+\FunctionTok{library}\NormalTok{(effectsize)  }\CommentTok{\# Cohen\textquotesingle{}s d}
+\FunctionTok{library}\NormalTok{(BayesFactor) }\CommentTok{\# Bayesian ANOVA}
+\FunctionTok{library}\NormalTok{(ggplot2)     }\CommentTok{\# Plotting}
+
+\CommentTok{\# Convert condition to factor}
+\NormalTok{workload}\SpecialCharTok{$}\NormalTok{condition }\OtherTok{\textless{}{-}} \FunctionTok{as.factor}\NormalTok{(workload}\SpecialCharTok{$}\NormalTok{condition)}
+
+\CommentTok{\# One{-}way ANOVA: Total NASA{-}TLX score}
+\NormalTok{aov\_workload }\OtherTok{\textless{}{-}} \FunctionTok{aov}\NormalTok{(total\_score\_sum\_6 }\SpecialCharTok{\textasciitilde{}}\NormalTok{ condition, }\AttributeTok{data =}\NormalTok{ workload)}
+\NormalTok{summary\_aov }\OtherTok{\textless{}{-}} \FunctionTok{summary}\NormalTok{(aov\_workload)}
+\FunctionTok{print}\NormalTok{(summary\_aov)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##             Df Sum Sq Mean Sq F value Pr(>F)
+## condition    2    747   373.6   1.976  0.158
+## Residuals   27   5106   189.1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Assumption checks}
+\CommentTok{\# Levene\textquotesingle{}s test for homogeneity of variance}
+\NormalTok{levene\_test }\OtherTok{\textless{}{-}} \FunctionTok{leveneTest}\NormalTok{(total\_score\_sum\_6 }\SpecialCharTok{\textasciitilde{}}\NormalTok{ condition, }\AttributeTok{data =}\NormalTok{ workload)}
+\FunctionTok{print}\NormalTok{(levene\_test)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Levene's Test for Homogeneity of Variance (center = median)
+##       Df F value Pr(>F)
+## group  2  0.2585 0.7741
+##       27
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Shapiro{-}Wilk test for normality of residuals}
+\NormalTok{shapiro\_test }\OtherTok{\textless{}{-}} \FunctionTok{shapiro.test}\NormalTok{(}\FunctionTok{residuals}\NormalTok{(aov\_workload))}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Shapiro{-}Wilk W ="}\NormalTok{, }\FunctionTok{round}\NormalTok{(shapiro\_test}\SpecialCharTok{$}\NormalTok{statistic,}\DecValTok{3}\NormalTok{), }
+    \StringTok{", p ="}\NormalTok{, }\FunctionTok{round}\NormalTok{(shapiro\_test}\SpecialCharTok{$}\NormalTok{p.value,}\DecValTok{3}\NormalTok{), }\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Shapiro-Wilk W = 0.964 , p = 0.388
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Post{-}hoc Tukey HSD comparisons}
+\NormalTok{tukey\_results }\OtherTok{\textless{}{-}} \FunctionTok{TukeyHSD}\NormalTok{(aov\_workload)}
+\FunctionTok{print}\NormalTok{(tukey\_results)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   Tukey multiple comparisons of means
+##     95% family-wise confidence level
+## 
+## Fit: aov(formula = total_score_sum_6 ~ condition, data = workload)
+## 
+## $condition
+##           diff       lwr       upr     p adj
+## O-E  -8.083333 -23.33159  7.164922 0.3996422
+## R-E -11.983333 -27.23159  3.264922 0.1446954
+## R-O  -3.900000 -19.14825 11.348255 0.8027425
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Cohen\textquotesingle{}s d effect sizes for pairwise comparisons}
+\NormalTok{conditions }\OtherTok{\textless{}{-}} \FunctionTok{levels}\NormalTok{(workload}\SpecialCharTok{$}\NormalTok{condition)}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{Cohen\textquotesingle{}s d effect sizes:}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Cohen's d effect sizes:
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\NormalTok{(}\FunctionTok{length}\NormalTok{(conditions)}\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{)) \{}
+  \ControlFlowTok{for}\NormalTok{ (j }\ControlFlowTok{in}\NormalTok{ (i}\SpecialCharTok{+}\DecValTok{1}\NormalTok{)}\SpecialCharTok{:}\FunctionTok{length}\NormalTok{(conditions)) \{}
+\NormalTok{    group1 }\OtherTok{\textless{}{-}}\NormalTok{ workload}\SpecialCharTok{$}\NormalTok{total\_score\_sum\_6[workload}\SpecialCharTok{$}\NormalTok{condition }\SpecialCharTok{==}\NormalTok{ conditions[i]]}
+\NormalTok{    group2 }\OtherTok{\textless{}{-}}\NormalTok{ workload}\SpecialCharTok{$}\NormalTok{total\_score\_sum\_6[workload}\SpecialCharTok{$}\NormalTok{condition }\SpecialCharTok{==}\NormalTok{ conditions[j]]}
+\NormalTok{    d\_val }\OtherTok{\textless{}{-}}\NormalTok{ (}\FunctionTok{mean}\NormalTok{(group2, }\AttributeTok{na.rm=}\ConstantTok{TRUE}\NormalTok{) }\SpecialCharTok{{-}} \FunctionTok{mean}\NormalTok{(group1, }\AttributeTok{na.rm=}\ConstantTok{TRUE}\NormalTok{)) }\SpecialCharTok{/} 
+      \FunctionTok{sqrt}\NormalTok{((}\FunctionTok{sd}\NormalTok{(group1, }\AttributeTok{na.rm=}\ConstantTok{TRUE}\NormalTok{)}\SpecialCharTok{\^{}}\DecValTok{2} \SpecialCharTok{+} \FunctionTok{sd}\NormalTok{(group2, }\AttributeTok{na.rm=}\ConstantTok{TRUE}\NormalTok{)}\SpecialCharTok{\^{}}\DecValTok{2}\NormalTok{)}\SpecialCharTok{/}\DecValTok{2}\NormalTok{)}
+    \FunctionTok{cat}\NormalTok{(conditions[j], }\StringTok{"vs"}\NormalTok{, conditions[i], }\StringTok{": d ="}\NormalTok{, }\FunctionTok{round}\NormalTok{(d\_val,}\DecValTok{3}\NormalTok{), }\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{  \}}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## O vs E : d = -0.541 
+## R vs E : d = -0.908 
+## R vs O : d = -0.299
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Bayesian ANOVA}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{Bayesian ANOVA:}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Bayesian ANOVA:
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{bf\_workload }\OtherTok{\textless{}{-}} \FunctionTok{tryCatch}\NormalTok{(\{}
+  \FunctionTok{anovaBF}\NormalTok{(total\_score\_sum\_6 }\SpecialCharTok{\textasciitilde{}}\NormalTok{ condition, }\AttributeTok{data =}\NormalTok{ workload)}
+\NormalTok{\}, }\AttributeTok{error =} \ControlFlowTok{function}\NormalTok{(e) \{}\FunctionTok{cat}\NormalTok{(}\StringTok{"Bayesian ANOVA error:"}\NormalTok{, e}\SpecialCharTok{$}\NormalTok{message, }\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)\})}
+\FunctionTok{print}\NormalTok{(bf\_workload)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Bayes factor analysis
+## --------------
+## [1] condition : 0.732982 ±0.01%
+## 
+## Against denominator:
+##   Intercept only 
+## ---
+## Bayes factor type: BFlinearModel, JZS
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# ==============================}
+\CommentTok{\# Figure 1: Boxplot of NASA{-}TLX Total Scores}
+\CommentTok{\# ==============================}
+\FunctionTok{ggplot}\NormalTok{(workload, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ condition, }\AttributeTok{y =}\NormalTok{ total\_score\_sum\_6, }\AttributeTok{fill =}\NormalTok{ condition)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_boxplot}\NormalTok{(}\AttributeTok{alpha =} \FloatTok{0.7}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{geom\_jitter}\NormalTok{(}\AttributeTok{width =} \FloatTok{0.2}\NormalTok{, }\AttributeTok{alpha =} \FloatTok{0.3}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme\_minimal}\NormalTok{(}\AttributeTok{base\_size =} \DecValTok{12}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}
+    \AttributeTok{title =} \StringTok{"Figure 1: NASA{-}TLX Total Workload Scores by Condition"}\NormalTok{,}
+    \AttributeTok{x =} \StringTok{"Condition"}\NormalTok{,}
+    \AttributeTok{y =} \StringTok{"Total Workload Score"}
+\NormalTok{  ) }\SpecialCharTok{+}
+  \FunctionTok{theme}\NormalTok{(}\AttributeTok{legend.position =} \StringTok{"none"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{YY56_files/figure-latex/workload-inferential-1.pdf}
+\#\#\# Situation Awareness (SART total) The total score of SART was
+significantly different in the three environmental conditions, which was
+situation awareness. An ANOVA with one independent t-test condition
+showed that there was a significant effect of condition, F(2, 27) =
+5.236, p=0.012, which means that the awareness of system state of the
+participants did depend on whether they managed Extreme\_Hare (E),
+Ambiguous (O), or Extreme\_Stag (R) environments. Ambiguous condition
+versus Extreme-Hare condition post-hoc Tukey comparisons revealed a
+significant mean difference between situation awareness in the situation
+of ambiguity (O; M = 15.1, SD = 2.88) and the situation of extreme hare
+(E; M = 10.2, SD = 4.24), mean difference = 4.9, 95\% CI {[}0.768,
+9.032{]}, p = 0.018. Equally, the SART scores were much higher in the
+Extreme\_Stag condition (R; M = 14.6, SD = 3.92) in comparison with E
+(mean diff = 4.4, 95\% CI {[}0.268, 8.532{]}, p = 0.035), and the
+difference between R and O was not significant (diff = -0.5, p = 0.952).
+Homogeneity of variance was checked with assumption checks (Levene p =
+0.569) and approximate normality of the residual state (ShapiroWilk p =
+0.427). These differences are depicted in Fig 2 qualitatively where
+situation awareness was lowest when the participants were in the Extreme
+Hare environments and both the Ambiguous as well as the Extreme Stag
+conditions did encourage high situation awareness. This trend indicates
+that uncertainty of the environment (O) or high possible payoff (R)
+enhances the monitoring and mental involvement of the participants,
+which is in line with the theoretical perspective of viewed situation
+awareness elevation with an increase in task demands or potential
+payoffs (Fang et al., 2025).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# ==============================}
+\CommentTok{\# Table 2: Descriptive Statistics for Main Variables}
+\CommentTok{\# ==============================}
+
+\FunctionTok{library}\NormalTok{(dplyr)}
+\FunctionTok{library}\NormalTok{(knitr)}
+\FunctionTok{library}\NormalTok{(kableExtra)}
+
+\CommentTok{\# 1. Workload (NASA{-}TLX total)}
+\NormalTok{workload\_summary }\OtherTok{\textless{}{-}}\NormalTok{ workload }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(condition) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}
+    \AttributeTok{n =} \FunctionTok{n}\NormalTok{(),}
+    \AttributeTok{Workload\_Mean =} \FunctionTok{round}\NormalTok{(}\FunctionTok{mean}\NormalTok{(total\_score\_sum\_6, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{), }\DecValTok{1}\NormalTok{),}
+    \AttributeTok{Workload\_SD   =} \FunctionTok{round}\NormalTok{(}\FunctionTok{sd}\NormalTok{(total\_score\_sum\_6, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{), }\DecValTok{1}\NormalTok{),}
+    \AttributeTok{.groups =} \StringTok{\textquotesingle{}drop\textquotesingle{}}
+\NormalTok{  )}
+
+\CommentTok{\# 2. NASA{-}TLX Subscales}
+\NormalTok{subscale\_summary }\OtherTok{\textless{}{-}}\NormalTok{ workload }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(condition) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}
+    \AttributeTok{Mental\_Demand\_M =} \FunctionTok{round}\NormalTok{(}\FunctionTok{mean}\NormalTok{(mental\_demand, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{),}\DecValTok{1}\NormalTok{),}
+    \AttributeTok{Mental\_Demand\_SD =} \FunctionTok{round}\NormalTok{(}\FunctionTok{sd}\NormalTok{(mental\_demand, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{),}\DecValTok{1}\NormalTok{),}
+    \AttributeTok{Physical\_Demand\_M =} \FunctionTok{round}\NormalTok{(}\FunctionTok{mean}\NormalTok{(physical\_demand, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{),}\DecValTok{1}\NormalTok{),}
+    \AttributeTok{Physical\_Demand\_SD =} \FunctionTok{round}\NormalTok{(}\FunctionTok{sd}\NormalTok{(physical\_demand, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{),}\DecValTok{1}\NormalTok{),}
+    \AttributeTok{Effort\_M =} \FunctionTok{round}\NormalTok{(}\FunctionTok{mean}\NormalTok{(effort, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{),}\DecValTok{1}\NormalTok{),}
+    \AttributeTok{Effort\_SD =} \FunctionTok{round}\NormalTok{(}\FunctionTok{sd}\NormalTok{(effort, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{),}\DecValTok{1}\NormalTok{),}
+    \AttributeTok{Performance\_M =} \FunctionTok{round}\NormalTok{(}\FunctionTok{mean}\NormalTok{(performance, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{),}\DecValTok{1}\NormalTok{),}
+    \AttributeTok{Performance\_SD =} \FunctionTok{round}\NormalTok{(}\FunctionTok{sd}\NormalTok{(performance, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{),}\DecValTok{1}\NormalTok{),}
+    \AttributeTok{Frustration\_M =} \FunctionTok{round}\NormalTok{(}\FunctionTok{mean}\NormalTok{(frustration, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{),}\DecValTok{1}\NormalTok{),}
+    \AttributeTok{Frustration\_SD =} \FunctionTok{round}\NormalTok{(}\FunctionTok{sd}\NormalTok{(frustration, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{),}\DecValTok{1}\NormalTok{),}
+    \AttributeTok{.groups =} \StringTok{\textquotesingle{}drop\textquotesingle{}}
+\NormalTok{  )}
+
+\CommentTok{\# 3. Situation Awareness (SA total)}
+\NormalTok{sa\_summary }\OtherTok{\textless{}{-}}\NormalTok{ sa }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(demand\_condition) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}
+    \AttributeTok{SA\_Mean =} \FunctionTok{round}\NormalTok{(}\FunctionTok{mean}\NormalTok{(sa\_total, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{), }\DecValTok{1}\NormalTok{),}
+    \AttributeTok{SA\_SD =} \FunctionTok{round}\NormalTok{(}\FunctionTok{sd}\NormalTok{(sa\_total, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{), }\DecValTok{1}\NormalTok{),}
+    \AttributeTok{.groups =} \StringTok{\textquotesingle{}drop\textquotesingle{}}
+\NormalTok{  ) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{rename}\NormalTok{(}\AttributeTok{condition =}\NormalTok{ demand\_condition)}
+
+\CommentTok{\# 4. Performance (FullData)}
+\NormalTok{performance\_summary }\OtherTok{\textless{}{-}}\NormalTok{ fulldata }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(condition) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}
+    \AttributeTok{Performance\_Mean =} \FunctionTok{round}\NormalTok{(}\FunctionTok{mean}\NormalTok{(score, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{),}\DecValTok{1}\NormalTok{),}
+    \AttributeTok{Performance\_SD   =} \FunctionTok{round}\NormalTok{(}\FunctionTok{sd}\NormalTok{(score, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{),}\DecValTok{1}\NormalTok{),}
+    \AttributeTok{.groups =} \StringTok{\textquotesingle{}drop\textquotesingle{}}
+\NormalTok{  )}
+
+\CommentTok{\# ==============================}
+\CommentTok{\# Merge all summaries into one table}
+\CommentTok{\# ==============================}
+\NormalTok{table2 }\OtherTok{\textless{}{-}}\NormalTok{ workload\_summary }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{left\_join}\NormalTok{(subscale\_summary, }\AttributeTok{by =} \StringTok{"condition"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{left\_join}\NormalTok{(sa\_summary, }\AttributeTok{by =} \StringTok{"condition"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{left\_join}\NormalTok{(performance\_summary, }\AttributeTok{by =} \StringTok{"condition"}\NormalTok{)}
+
+\CommentTok{\# Print nicely formatted table}
+\NormalTok{table2 }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{kable}\NormalTok{(}
+    \AttributeTok{caption =} \StringTok{"Table 2: Descriptive Statistics for Main Variables by Condition"}\NormalTok{,}
+    \AttributeTok{booktabs =} \ConstantTok{TRUE}\NormalTok{,}
+    \AttributeTok{digits =} \DecValTok{1}
+\NormalTok{  ) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{kable\_styling}\NormalTok{(}\AttributeTok{full\_width =} \ConstantTok{FALSE}\NormalTok{, }\AttributeTok{position =} \StringTok{"center"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[t]{lrrrrrrrrrrrrrrrrr}
+\caption{\label{tab:table2-descriptives}Table 2: Descriptive Statistics for Main Variables by Condition}\\
+\toprule
+condition & n & Workload\_Mean & Workload\_SD & Mental\_Demand\_M & Mental\_Demand\_SD & Physical\_Demand\_M & Physical\_Demand\_SD & Effort\_M & Effort\_SD & Performance\_M & Performance\_SD.x & Frustration\_M & Frustration\_SD & SA\_Mean & SA\_SD & Performance\_Mean & Performance\_SD.y\\
+\midrule
+E & 10 & 46.2 & 15.1 & 57 & 27.8 & 28.5 & 17.5 & 59 & 17.4 & 42.5 & 26.4 & 33.0 & 21.0 & 10.2 & 4.2 & 691.2 & 88.8\\
+O & 10 & 38.1 & 14.8 & 54 & 19.3 & 16.5 & 14.9 & 52 & 21.8 & 25.5 & 11.4 & 32.5 & 21.0 & 15.1 & 2.9 & 751.5 & 95.7\\
+R & 10 & 34.2 & 11.0 & 48 & 24.5 & 13.0 & 9.2 & 34 & 18.5 & 32.0 & 19.0 & 25.5 & 17.4 & 14.6 & 3.9 & 795.6 & 36.0\\
+\bottomrule
+\end{longtable}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(ggplot2)}
+\FunctionTok{library}\NormalTok{(dplyr)}
+
+\CommentTok{\# Prepare data for plotting}
+\NormalTok{sa\_plot\_data }\OtherTok{\textless{}{-}}\NormalTok{ sa }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{select}\NormalTok{(participant, demand\_condition, sa\_total) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{arrange}\NormalTok{(demand\_condition, participant)}
+
+\CommentTok{\# Summary statistics for plotting}
+\NormalTok{sa\_summary }\OtherTok{\textless{}{-}}\NormalTok{ sa\_plot\_data }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(demand\_condition) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}
+    \AttributeTok{n =} \FunctionTok{n}\NormalTok{(),}
+    \AttributeTok{mean\_sa =} \FunctionTok{mean}\NormalTok{(sa\_total, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{),}
+    \AttributeTok{sd\_sa =} \FunctionTok{sd}\NormalTok{(sa\_total, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{),}
+    \AttributeTok{se\_sa =}\NormalTok{ sd\_sa }\SpecialCharTok{/} \FunctionTok{sqrt}\NormalTok{(n),}
+    \AttributeTok{.groups =} \StringTok{\textquotesingle{}drop\textquotesingle{}}
+\NormalTok{  )}
+
+\CommentTok{\# Print summary table}
+\NormalTok{sa\_summary}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 3 x 5
+##   demand_condition     n mean_sa sd_sa se_sa
+##   <fct>            <int>   <dbl> <dbl> <dbl>
+## 1 E                   10    10.2  4.24 1.34 
+## 2 O                   10    15.1  2.88 0.912
+## 3 R                   10    14.6  3.92 1.24
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Create boxplot with individual data points}
+\FunctionTok{ggplot}\NormalTok{(sa\_plot\_data, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ demand\_condition, }\AttributeTok{y =}\NormalTok{ sa\_total, }\AttributeTok{fill =}\NormalTok{ demand\_condition)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_boxplot}\NormalTok{(}\AttributeTok{alpha =} \FloatTok{0.7}\NormalTok{, }\AttributeTok{outlier.shape =} \ConstantTok{NA}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{geom\_jitter}\NormalTok{(}\AttributeTok{width =} \FloatTok{0.2}\NormalTok{, }\AttributeTok{alpha =} \FloatTok{0.4}\NormalTok{, }\AttributeTok{color =} \StringTok{"black"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme\_minimal}\NormalTok{(}\AttributeTok{base\_size =} \DecValTok{12}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}
+    \AttributeTok{title =} \StringTok{"Figure 2: Situation Awareness Total Score by Condition"}\NormalTok{,}
+    \AttributeTok{x =} \StringTok{"Demand Condition"}\NormalTok{,}
+    \AttributeTok{y =} \StringTok{"SA Total Score"}
+\NormalTok{  ) }\SpecialCharTok{+}
+  \FunctionTok{theme}\NormalTok{(}\AttributeTok{legend.position =} \StringTok{"none"}\NormalTok{,}
+        \AttributeTok{axis.text.x =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{angle =} \DecValTok{45}\NormalTok{, }\AttributeTok{hjust =} \DecValTok{1}\NormalTok{)) }\SpecialCharTok{+}
+  \FunctionTok{scale\_fill\_brewer}\NormalTok{(}\AttributeTok{palette =} \StringTok{"Set2"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{YY56_files/figure-latex/figure2-sa-total-1.pdf} \#\#\#
+Performance (Score) The scores of performance varied significantly
+across conditions, F (2,27) =4.492, p=0.021. A Mean difference of 104.4,
+95\% CI {[}17.69, 191.11{]} at p = 0.016 suggested that the scores in
+the Extreme\_ Stag (R) group were significantly higher than in the
+Extreme\_Hare (E) group. The results did not provide significant
+differences between Ambiguous (O) and E (diff = 60.3, p = 0.215) and R
+vs O (diff = 44.1, p = 0.429) indicating that the Stag team had a strong
+performance advantage only in the circumstances when the environment was
+conducive to the game. There was no issue with assumption checks,
+(Levene p = 0.269; ShapiroWilk p = 0.091). The aggregate and individual
+performance data are summarised in figure 3. Mean scores grew between E
+(M = 691, SD = 88.8) and O (M = 752, SD = 95.7), and were maximum in R
+(M = 796, SD = 36.0). The means were also pretty close to the median
+values and the ranges were smaller in R, which implied greater
+consistency in performance under the Stag-favouring condition. The
+figure shows an increase in rewards in participants with clear
+environmental structure and high-payoff option which are significant in
+the role of environmental cues on the effectiveness of their decisions
+and the choice of strategy (Bollen et al., 2025).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(ggplot2)}
+\FunctionTok{library}\NormalTok{(dplyr)}
+
+\CommentTok{\# Prepare data for plotting}
+\NormalTok{performance\_plot\_data }\OtherTok{\textless{}{-}}\NormalTok{ fulldata }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{select}\NormalTok{(participant, condition, score) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{arrange}\NormalTok{(condition, participant)}
+
+\CommentTok{\# Summary statistics for reference}
+\NormalTok{performance\_summary }\OtherTok{\textless{}{-}}\NormalTok{ performance\_plot\_data }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(condition) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}
+    \AttributeTok{n =} \FunctionTok{n}\NormalTok{(),}
+    \AttributeTok{mean\_score =} \FunctionTok{mean}\NormalTok{(score, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{),}
+    \AttributeTok{sd\_score =} \FunctionTok{sd}\NormalTok{(score, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{),}
+    \AttributeTok{se\_score =}\NormalTok{ sd\_score }\SpecialCharTok{/} \FunctionTok{sqrt}\NormalTok{(n),}
+    \AttributeTok{.groups =} \StringTok{\textquotesingle{}drop\textquotesingle{}}
+\NormalTok{  )}
+
+\CommentTok{\# Print summary table}
+\NormalTok{performance\_summary}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 3 x 5
+##   condition     n mean_score sd_score se_score
+##   <fct>     <int>      <dbl>    <dbl>    <dbl>
+## 1 E            10       691.     88.8     28.1
+## 2 O            10       752.     95.7     30.3
+## 3 R            10       796.     36.0     11.4
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Create violin + boxplot with individual data points}
+\FunctionTok{ggplot}\NormalTok{(performance\_plot\_data, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ condition, }\AttributeTok{y =}\NormalTok{ score, }\AttributeTok{fill =}\NormalTok{ condition)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_violin}\NormalTok{(}\AttributeTok{alpha =} \FloatTok{0.6}\NormalTok{, }\AttributeTok{trim =} \ConstantTok{TRUE}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{geom\_boxplot}\NormalTok{(}\AttributeTok{width =} \FloatTok{0.2}\NormalTok{, }\AttributeTok{alpha =} \FloatTok{0.8}\NormalTok{, }\AttributeTok{outlier.shape =} \ConstantTok{NA}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{geom\_jitter}\NormalTok{(}\AttributeTok{width =} \FloatTok{0.15}\NormalTok{, }\AttributeTok{alpha =} \FloatTok{0.4}\NormalTok{, }\AttributeTok{color =} \StringTok{"black"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme\_minimal}\NormalTok{(}\AttributeTok{base\_size =} \DecValTok{12}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}
+    \AttributeTok{title =} \StringTok{"Figure 3: Performance Scores by Condition"}\NormalTok{,}
+    \AttributeTok{x =} \StringTok{"Condition"}\NormalTok{,}
+    \AttributeTok{y =} \StringTok{"Performance Score"}
+\NormalTok{  ) }\SpecialCharTok{+}
+  \FunctionTok{theme}\NormalTok{(}\AttributeTok{legend.position =} \StringTok{"none"}\NormalTok{,}
+        \AttributeTok{axis.text.x =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{angle =} \DecValTok{45}\NormalTok{, }\AttributeTok{hjust =} \DecValTok{1}\NormalTok{)) }\SpecialCharTok{+}
+  \FunctionTok{scale\_fill\_brewer}\NormalTok{(}\AttributeTok{palette =} \StringTok{"Pastel1"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{YY56_files/figure-latex/figure3-performance-1.pdf}
+
+\subsubsection{NASA-TLX subscales}\label{nasa-tlx-subscales}
+
+Individual subscale analysis of NASA-TLX showed that there was
+significant difference in reported effort concerning conditions, F(2,27)
+= 4.451, p = 0.021, with the participants in Extreme\_Hare (E), and
+Ambiguous (O) conditions reporting higher effort levels (M = 59 and 52,
+respectively) as compared to the Extreme\_Stag (R) condition (M = 34).
+The physical demand was also significant, F(2,27) = 3.235, p = 0.055, E
+had the largest mean (28.5) and R the lowest (13). Mental demand,
+temporal demand, performance and frustration did not differ
+significantly, as did other subscales. These patterns are shown in
+figure 4 with higher effort and consequently, lower physical demand
+being used in higher uncertainty or risk conditions and lower subjective
+workload in the Stag-favouring environment. The standard errors and the
+means show that there are always differences, especially the lower mean
+and the lower variability of effort as shown by R (Bollen et al., 2025).
+This trend indicates that the Stag setting was less challenging to the
+participants, probably because of better task organization and more
+predictable results, and ambiguous and Hare settings had to be attended
+to and closely monitored due to their ambiguity, which added perceived
+effort and physical load.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(ggplot2)}
+\FunctionTok{library}\NormalTok{(dplyr)}
+\FunctionTok{library}\NormalTok{(tidyr)}
+
+\CommentTok{\# Reshape NASA{-}TLX subscale data for plotting}
+\NormalTok{workload\_melt }\OtherTok{\textless{}{-}}\NormalTok{ workload }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{select}\NormalTok{(participant, condition, mental\_demand, physical\_demand, }
+\NormalTok{         temporal\_demand, performance, effort, frustration) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{pivot\_longer}\NormalTok{(}
+    \AttributeTok{cols =}\NormalTok{ mental\_demand}\SpecialCharTok{:}\NormalTok{frustration,}
+    \AttributeTok{names\_to =} \StringTok{"subscale"}\NormalTok{,}
+    \AttributeTok{values\_to =} \StringTok{"score"}
+\NormalTok{  )}
+
+\CommentTok{\# Calculate mean and SE for each subscale x condition}
+\NormalTok{subscale\_summary }\OtherTok{\textless{}{-}}\NormalTok{ workload\_melt }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(condition, subscale) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}
+    \AttributeTok{n =} \FunctionTok{n}\NormalTok{(),}
+    \AttributeTok{mean\_score =} \FunctionTok{mean}\NormalTok{(score, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{),}
+    \AttributeTok{sd\_score =} \FunctionTok{sd}\NormalTok{(score, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{),}
+    \AttributeTok{se\_score =}\NormalTok{ sd\_score }\SpecialCharTok{/} \FunctionTok{sqrt}\NormalTok{(n),}
+    \AttributeTok{.groups =} \StringTok{\textquotesingle{}drop\textquotesingle{}}
+\NormalTok{  )}
+
+\CommentTok{\# Print summary table}
+\NormalTok{subscale\_summary}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 18 x 6
+##    condition subscale            n mean_score sd_score se_score
+##    <fct>     <chr>           <int>      <dbl>    <dbl>    <dbl>
+##  1 E         effort             10       59      17.4      5.52
+##  2 E         frustration        10       33      21.0      6.63
+##  3 E         mental_demand      10       57      27.8      8.79
+##  4 E         performance        10       42.5    26.4      8.34
+##  5 E         physical_demand    10       28.5    17.5      5.53
+##  6 E         temporal_demand    10       57      19.9      6.29
+##  7 O         effort             10       52      21.8      6.88
+##  8 O         frustration        10       32.5    21.0      6.64
+##  9 O         mental_demand      10       54      19.3      6.09
+## 10 O         performance        10       25.5    11.4      3.61
+## 11 O         physical_demand    10       16.5    14.9      4.72
+## 12 O         temporal_demand    10       48      27.1      8.57
+## 13 R         effort             10       34      18.5      5.86
+## 14 R         frustration        10       25.5    17.4      5.5 
+## 15 R         mental_demand      10       48      24.5      7.75
+## 16 R         performance        10       32      19.0      6.02
+## 17 R         physical_demand    10       13       9.19     2.91
+## 18 R         temporal_demand    10       52.6    18.4      5.83
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Create grouped barplot with error bars}
+\FunctionTok{ggplot}\NormalTok{(subscale\_summary, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ subscale, }\AttributeTok{y =}\NormalTok{ mean\_score, }\AttributeTok{fill =}\NormalTok{ condition)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_bar}\NormalTok{(}\AttributeTok{stat =} \StringTok{"identity"}\NormalTok{, }\AttributeTok{position =} \FunctionTok{position\_dodge}\NormalTok{(}\AttributeTok{width =} \FloatTok{0.8}\NormalTok{), }\AttributeTok{alpha =} \FloatTok{0.8}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{geom\_errorbar}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{ymin =}\NormalTok{ mean\_score }\SpecialCharTok{{-}}\NormalTok{ se\_score, }\AttributeTok{ymax =}\NormalTok{ mean\_score }\SpecialCharTok{+}\NormalTok{ se\_score),}
+                \AttributeTok{width =} \FloatTok{0.2}\NormalTok{, }\AttributeTok{position =} \FunctionTok{position\_dodge}\NormalTok{(}\FloatTok{0.8}\NormalTok{)) }\SpecialCharTok{+}
+  \FunctionTok{theme\_minimal}\NormalTok{(}\AttributeTok{base\_size =} \DecValTok{12}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}
+    \AttributeTok{title =} \StringTok{"Figure 4: Mean NASA{-}TLX Subscale Scores by Condition"}\NormalTok{,}
+    \AttributeTok{x =} \StringTok{"NASA{-}TLX Subscale"}\NormalTok{,}
+    \AttributeTok{y =} \StringTok{"Mean Score"}
+\NormalTok{  ) }\SpecialCharTok{+}
+  \FunctionTok{theme}\NormalTok{(}\AttributeTok{axis.text.x =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{angle =} \DecValTok{45}\NormalTok{, }\AttributeTok{hjust =} \DecValTok{1}\NormalTok{)) }\SpecialCharTok{+}
+  \FunctionTok{scale\_fill\_brewer}\NormalTok{(}\AttributeTok{palette =} \StringTok{"Pastel2"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{YY56_files/figure-latex/figure4-nasatlx-1.pdf} \#\#\#
+Correlation Pearson correlation studies found out that there were
+various meaningful correlations among continuous variables. Choice
+accuracy had a strong positive correlation with performance (score)
+which = 0.640, p = 0.001, which means that participants who made more
+accurate choices of the team earned higher rewards. Response time was
+also found to have a negative correlation with the choice accuracy, r =
+-0.446, p = 0.014, meaning that the quicker the choice was the more
+accurate the choice was chosen. There was a moderate but negative
+relationship between NASA-TLX total and SART total, r = - 0.375, p =
+0.04 1, which suggested that the greater perceived workload was, the
+lower was the situation awareness. Other correlations were not
+significant or weak performance and NASA-TLX, r = -0.120; performance
+and SART, r = 0.014; NASA-TLX and choice accuracy, r = -0.263; SART and
+choice accuracy, r = 0.060; and response time and score, r = -0.156 and
+SART, r = -0.108. These patterns have been visualised in figure 5, and
+have the strongest associations between the performance, accuracy, and
+response efficiency, and the negative relation between the workload and
+situation awareness, which correlates to the cognitive load theory
+(Soetewey, 2020).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(ggplot2)}
+\FunctionTok{library}\NormalTok{(reshape2)}
+\FunctionTok{library}\NormalTok{(dplyr)}
+\FunctionTok{library}\NormalTok{(psych)}
+
+\CommentTok{\# Select relevant continuous variables for correlation}
+\NormalTok{cor\_data }\OtherTok{\textless{}{-}}\NormalTok{ fulldata }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{select}\NormalTok{(score, nasa\_tlx, sart, choice\_accuracy, time\_respond\_env)}
+
+\CommentTok{\# Compute correlation matrix}
+\NormalTok{cor\_matrix }\OtherTok{\textless{}{-}} \FunctionTok{cor}\NormalTok{(cor\_data, }\AttributeTok{use =} \StringTok{"pairwise.complete.obs"}\NormalTok{)}
+
+\CommentTok{\# Melt correlation matrix for plotting}
+\NormalTok{cor\_melt }\OtherTok{\textless{}{-}} \FunctionTok{melt}\NormalTok{(cor\_matrix)}
+
+\CommentTok{\# Print correlation values}
+\NormalTok{cor\_melt}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                Var1             Var2       value
+## 1             score            score  1.00000000
+## 2          nasa_tlx            score -0.12034368
+## 3              sart            score  0.01374808
+## 4   choice_accuracy            score  0.64049580
+## 5  time_respond_env            score -0.15601108
+## 6             score         nasa_tlx -0.12034368
+## 7          nasa_tlx         nasa_tlx  1.00000000
+## 8              sart         nasa_tlx -0.37455400
+## 9   choice_accuracy         nasa_tlx -0.26335153
+## 10 time_respond_env         nasa_tlx  0.28790328
+## 11            score             sart  0.01374808
+## 12         nasa_tlx             sart -0.37455400
+## 13             sart             sart  1.00000000
+## 14  choice_accuracy             sart  0.06041736
+## 15 time_respond_env             sart -0.10828335
+## 16            score  choice_accuracy  0.64049580
+## 17         nasa_tlx  choice_accuracy -0.26335153
+## 18             sart  choice_accuracy  0.06041736
+## 19  choice_accuracy  choice_accuracy  1.00000000
+## 20 time_respond_env  choice_accuracy -0.44590621
+## 21            score time_respond_env -0.15601108
+## 22         nasa_tlx time_respond_env  0.28790328
+## 23             sart time_respond_env -0.10828335
+## 24  choice_accuracy time_respond_env -0.44590621
+## 25 time_respond_env time_respond_env  1.00000000
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Create correlation heatmap}
+\FunctionTok{ggplot}\NormalTok{(cor\_melt, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Var1, }\AttributeTok{y =}\NormalTok{ Var2, }\AttributeTok{fill =}\NormalTok{ value)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_tile}\NormalTok{(}\AttributeTok{color =} \StringTok{"white"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{geom\_text}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{label =} \FunctionTok{round}\NormalTok{(value, }\DecValTok{2}\NormalTok{)), }\AttributeTok{color =} \StringTok{"black"}\NormalTok{, }\AttributeTok{size =} \DecValTok{3}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{scale\_fill\_gradient2}\NormalTok{(}\AttributeTok{low =} \StringTok{"blue"}\NormalTok{, }\AttributeTok{mid =} \StringTok{"white"}\NormalTok{, }\AttributeTok{high =} \StringTok{"red"}\NormalTok{, }
+                       \AttributeTok{midpoint =} \DecValTok{0}\NormalTok{, }\AttributeTok{limit =} \FunctionTok{c}\NormalTok{(}\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{), }\AttributeTok{name =} \StringTok{"Correlation"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme\_minimal}\NormalTok{(}\AttributeTok{base\_size =} \DecValTok{12}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}
+    \AttributeTok{title =} \StringTok{"Figure 5: Correlation Matrix of Performance Measures"}\NormalTok{,}
+    \AttributeTok{x =} \StringTok{""}\NormalTok{,}
+    \AttributeTok{y =} \StringTok{""}
+\NormalTok{  ) }\SpecialCharTok{+}
+  \FunctionTok{theme}\NormalTok{(}\AttributeTok{axis.text.x =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{angle =} \DecValTok{45}\NormalTok{, }\AttributeTok{hjust =} \DecValTok{1}\NormalTok{),}
+        \AttributeTok{axis.text.y =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{hjust =} \DecValTok{1}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{YY56_files/figure-latex/figure5-correlation-1.pdf}
+
+\subsubsection{Reliability}\label{reliability}
+
+This study showed an acceptable level of internal consistency of
+NASA-TLX subscales in its form, with a Cronbach alpha of 0.78 and a 95\%
+interval of 0.64 to 0.88. This reliability is a good indication of the
+internal consistency of the six NASA-TLX subscales and hence they can be
+used as a valid measure of subjective workload among the sample. In line
+with accepted principles, an alpha of over 0.70 implies that the
+instrument is able to measure a single construct, which is perceived
+workload. These results are similar to the previous literature
+indicating that NASA-TLX is a strong and extensively utilized workload
+measurement tool in the human-machine interaction research (Kotian,
+Varghese and Motappa, 2022).
+
+\section{Discussion}\label{discussion}
+
+\subsection{Summary and interpretation of key
+findings}\label{summary-and-interpretation-of-key-findings}
+
+In this study, the question presented was whether or not human
+supervisors could be effective in choosing between specialist and
+adaptive multi-agent reinforcement learning (MARL) teams in environments
+of varying risk profile. According to the results, there is a definite
+performance advantage in the environments where high-reward strategies
+are strongly provided. To be more specific, the greatest mean
+performance score was registered in Extreme\_Stag (R) condition (M =
+795.6) which was significantly lower than the Extreme\_Hare (E)
+condition with the mean difference of 104.4 (p = 0.0159). It implies
+that in the case when an environment intensively rewards a high-reward
+alternative, supervisors can better identify and take advantage of the
+underlying task structure or can harness the inherent efficiency of the
+Stag-specialist team (Yang, He and Huang, 2024). The situation awareness
+was varying systematically in environmental situations. There were
+significant variations in SART total scores between the Extreme\_Hare
+(E) and the Ambiguous (O) conditions and between the Extreme\_Hare (E)
+and the Extreme Stag (R) conditions. The implication of these findings
+is that there is an increment in supervisory attention and awareness in
+uncertain conditions, or where there is saliency of potential rewards.
+On the other hand, the Extreme\_Hare state was linked to less situation
+awareness indicating that conditions with lesser incentives or cues can
+diminish engagements and monitoring. The workload as a result of the
+NASA-TLX total scores showed no significant difference between the
+conditions (F(2,27) = 1.976, p = 0.158; BF = 0.733) which developed
+moderate Bayesian support of the null hypothesis. Nonetheless, the
+effort subscale did show significant differences (p = 0.021), and the
+effect size between workload components seemed to be moderate-large when
+the workload is needed to be considered constant between the
+Extreme\_Stag and Extreme\_Hare (Cohen's d = 0.91), which indicates that
+components of workload can change despite the apparent stability of the
+workload (Griffiths et al., 2020). Lastly, performance was strongly
+related to behavioural efficiency. There is a positive correlation
+between performance and accuracy of choice (r = 0.64, p = 0.001; r =
+0.446, p = 0.014) and speed of responding which attests to the
+established relations between accuracy, efficiency and outcome (Sanchez
+and De La Torre, 1996). Although the awareness level was higher in
+unclear trials, supervisors did not always favor the adaptive DisAdv
+team, which is also consistent with the fact that humans choose not to
+trust adaptive systems without clear guidelines of their usefulness
+(Vaccaro et al., 2021).
+
+\subsection{Relation to existing
+literature}\label{relation-to-existing-literature}
+
+The performance benefits of the clear Stag settings (R) are consistent
+with meta-analytic findings on the reduction in the cognitive load and
+the improvement of decision outcomes when using unambiguous cues
+(Onnasch et al., 2014). Respondents were more likely to respond
+accurately and quickly in these settings, which is in line with the
+observation that when the level of ambiguity reduces, more tasks are
+performed. The high state of situational awareness can be found in the
+ambiguous situations which are observed, which is in accordance with the
+theoretical framework of Endsley (1995) that argues that uncertainty
+requires more situational monitoring and information processing.
+However, unlike the expectation that ambiguous conditions should cause
+the participants to prefer adaptive agents, DisAdv were selected to a
+lesser degree. This finding resembles the previous studies by Vaccaro et
+al.~(2021) and Schmutz et al.~(2023), which proved that trust and
+adaptive systems adoption are conditional on transparency, reason
+clarity, and adaptive behaviours communication. The workload-situation
+awareness negative correlation (r = -0.375, p = 0.041) confirms the
+popular belief that high cognitive or perceived work load would
+deteriorate situation awareness and quality of decisions (Hart and
+Staveland, 1988). It means that the attentional resources of supervisors
+can be overloaded in situations where more effort is required, which
+might make them unable to track the states of systems effectively.
+
+\subsection{Practical implications}\label{practical-implications}
+
+A number of practical implications can be drawn out of these findings.
+To start with, there is the requirement of transparency and adaptive
+agent training. Clear signs of its detection behaviour and success rates
+of the DisAdv agent can also be offered as a way of influencing
+supervisors to use it more suitably in a grey setting (Sanchez and De La
+Torre, 1996). Second, interface design must be focused on improving the
+situation awareness and lessening the effort (Suriya and Nivetha, 2023).
+As an example, the introduction of visuals like the number of berries
+can be used as cues that can enhance the perception and precision of
+environmental indicators that are not explicit. Third, work load sub
+components should be evaluated in an experimental and operational way.
+The effect of meaning differences in effort or physical demand that
+affect behaviour and quality of decision making may be masked by
+composite TLX scores.
+
+\subsection{Limitations}\label{limitations}
+
+There are a number of limitations that need to be mentioned. The sample
+size of N = 30 is small, and this can also limit the statistical power
+of detecting smaller effects (Mascha and Vetter, 2018). Some
+hypothesized effects may also not have much evidence based on the
+analysis of Bayesian. There was also a limit on the number of
+mixed-effects modelling that could address repeated measures contained
+in the participants because of aggregation of trial-level data. The
+level of briefing on the capabilities of the agents especially to the
+adaptive DisAdv team might have made a difference; there might have been
+low transparency in the selection of adaptive agents. Lastly, the
+laboratory setting and its unnatural generalizability of the laboratory
+task, including the number of the berries and the probability of an
+underlying illness, might restrict generalizability to real-world
+complex supervisory contexts, and one should test ecological validity in
+the future.
+
+\subsection{Future work}\label{future-work}
+
+The future study must offer concrete acts of transparency,
+e.g.~rationale displays or post-selection feedback, to ascertain whether
+supervisors are more effective in the selection of agents who are
+adaptive in uncertain situations. Complete data at the trial-level would
+allow hierarchical mixed-effects modelling to model both within-subject
+and between-subject variance and investigate effects of time on learning
+(Jost and Jansen, 2022). The assessment of interaction between agent
+explanation, participant experience and team choice would be possible
+with increasing sample size and different briefing or training
+protocols. Lastly, incorporating eye-tracking or think-aloud procedures
+may shed more light on the exact cues and approaches employed by
+supervisors to make team selections, which can be used to inform the
+interface design and adaptive agent development.
+
+\#Conclusion This paper shows that human bosses work best in situations
+characterized by clarity and Stag-favouring and situation awareness
+changes with environmental uncertainty (The R Foundation, 2019). Even
+though, ambiguous contexts evoked higher levels of reported SA, there
+was no a priori reason why adaptive DisAdv team proved to be more
+frequently chosen by supervisors. There was a positive relationship
+between performance and choice accuracy, and the faster the response
+time the accuracy. The immediate implication is that adaptive teams of
+agents are not necessarily preferred; in order to enable human-AI
+teaming, designers need to focus on transparency transparency, training,
+and good interface indicators to enable supervisors to see the payoff of
+adaptive agents. The following future study using trial-level data and
+bigger sample sizes would enable more rigorous research of
+supervisor-agent coordination strategies (Jost and Jansen, 2022 ).
+
+\section{References}\label{references}
+
+Bollen, Z., Wyss, A.M., Guizar Rosales, E., Le Houcq Corbi, Z. and
+Knoch, D. (2025). The role of attitudes and attention in
+pro-environmental decision-making: An eye-tracking study. Journal of
+Environmental Psychology, 107, p.102776. doi:
+\url{https://doi.org/10.1016/j.jenvp.2025.102776}. Collins, B.J.,
+Munyon, T.P., Ashkanasy, N., Gallagher, E. and Gallagher, S.A. (2022).
+Team Decision Making in Crisis: How Affect Asymmetry and Team Process
+Norms Affect Decision-Making. Research on Emotion in Organizations.
+{[}online{]} Available at:
+\url{https://www.researchgate.net/publication/360082673_Team_Decision_Making_in_Crisis_How_Affect_Asymmetry_and_Team_Process_Norms_Affect_Decision-Making}.
+Dung, T. and Duong, N.T. (2024). Investigating learning burnout and
+academic performance among management students: a longitudinal study in
+English courses. BMC psychology, 12(1). Doi:
+\url{https://doi.org/10.1186/s40359-024-01725-6}.\\
+Edwin De Jonge and Mark Van Der Loo (2013). Discussion Paper An
+introduction to data cleaning with R. {[}online{]} Available at:
+\url{https://cran.r-project.org/doc/contrib/de_Jonge+van_der_Loo-Introduction_to_data_cleaning_with_R.pdf}.
+Emmanuelle Apartis (2013). Clinical neurophysiology in movement
+disorders. Handbook of clinical neurology, {[}online{]} pp.87--92. doi:
+\url{https://doi.org/10.1016/b978-0-444-52891-9.00008-7}. Endsley, M.R.
+(1995). Toward a theory of situation awareness in dynamic systems. Human
+Factors. {[}online{]} psycnet.apa.org. Available at:
+\url{https://psycnet.apa.org/record/1995-42276-001}. Fang, R., Zhou, Q.,
+Zhou, C., Yuan, S., Wang, K., Li, Q., Zhang, Y. and Li, J. (2025). A
+Systematic Review of Empirical Studies on Situation Awareness:
+Perspectives From the Interaction Among Humans, Machines, and the Task
+Environment. PsyCh Journal, {[}online{]} 14(5), pp.718--733. doi:
+\url{https://doi.org/10.1002/pchj.70027}. Griffiths, P., Saville, C.,
+Ball, J., Jones, J., Pattison, N. and Monks, T. (2020). Nursing
+workload, Nurse Staffing Methodologies \& Tools: a Systematic Scoping
+Review \& Discussion. International Journal of Nursing Studies,
+{[}online{]} 103(1), pp.1--11. doi:
+\url{https://doi.org/10.1016/j.ijnurstu.2019.103487}.\\
+Hart, S.G. and Staveland, L.E. (1988). Development of NASA-TLX (task
+load index): Results of empirical and theoretical research. Advances in
+Psychology, {[}online{]} 52, pp.139--183. doi:
+\url{https://doi.org/10.1016/s0166-4115(08)62386-9}. Jost, L. and
+Jansen, P. (2022). Using linear mixed models to analyze learning
+processes within sessions improves detection of treatment effects: An
+exemplary study of chronometric mental rotation. Methods in Psychology,
+6, p.100092. doi: \url{https://doi.org/10.1016/j.metip.2022.100092}.
+Juarros-Basterretxea, J., Aonso-Diego, G., Postigo, Á., Montes-Álvarez,
+P., Menéndez-Aller, Á. and García-Cueto, E. (2024). Post-Hoc Tests in
+One-Way ANOVA: The Case for Normal Distribution. Methodology,
+{[}online{]} 20(2), pp.84--99. doi:
+\url{https://doi.org/10.5964/meth.11721}. Koopmans, L., Coffeng, J.K.,
+Bernaards, C.M., Boot, C.R., Hildebrandt, V.H., de Vet, H.C. and van der
+Beek, A.J. (2014). Responsiveness of the individual work performance
+questionnaire. BMC Public Health, 14(1). doi:
+\url{https://doi.org/10.1186/1471-2458-14-513}. Kotian, H., Varghese,
+A.L. and Motappa, R. (2022). An R Function for Cronbach's Alpha
+Analysis: A Case-Based Approach. National journal of community medicine,
+13(08), pp.571--575. doi:
+\url{https://doi.org/10.55489/njcm.130820221149}. Lambdin, C. and
+Shaffer, V.A. (2009). Are within-subjects designs transparent? Judgment
+and Decision Making, 4(7), pp.544--566. doi:
+\url{https://doi.org/10.1017/s1930297500001133}. Mascha, E.J. and
+Vetter, T.R. (2018). Significance, Errors, Power, and Sample Size: The
+Blocking and Tackling of Statistics. Anesthesia and Analgesia, 126(2),
+pp.691--698. doi: \url{https://doi.org/10.1213/ANE.0000000000002741}.
+Onnasch, L., Wickens, C.D., Li, H. and Manzey, D. (2013). Human
+Performance Consequences of Stages and Levels of Automation. Human
+Factors: The Journal of the Human Factors and Ergonomics Society, 56(3),
+pp.476--488. doi: \url{https://doi.org/10.1177/0018720813501549}.
+Sanchez, J.I. and De La Torre, P. (1996). A second look at the
+relationship between rating and behavioral accuracy in performance
+appraisal. Journal of Applied Psychology, 81(1), pp.3--10. doi:
+\url{https://doi.org/10.1037/0021-9010.81.1.3}. Schmid, D. and Stanton,
+N.A. (2019). Exploring Bayesian analyses of a small-sample-size
+factorial design in human systems integration: the effects of pilot
+incapacitation. Human-Intelligent Systems Integration, 1(2-4),
+pp.71--88. doi: \url{https://doi.org/10.1007/s42454-020-00012-0}.
+Schmutz, J.B., Outland, N., Kerstan, S., Georganta, E. and Anna-Sophie
+Ulfert (2024). AI-teaming: Redefining collaboration in the digital era.
+Current Opinion in Psychology, 58, pp.101837--101837. doi:
+\url{https://doi.org/10.1016/j.copsyc.2024.101837}. Soetewey, A. (2020).
+Correlation coefficient and correlation test in R. {[}online{]} Stats
+and R. Available at:
+\url{https://statsandr.com/blog/correlation-coefficient-and-correlation-test-in-r/}.
+Suriya, S. and Nivetha, S. (2023). Interface Design - an overview
+\textbar{} ScienceDirect Topics. {[}online{]} www.sciencedirect.com.
+Available at:
+\url{https://www.sciencedirect.com/topics/computer-science/interface-design}.
+The R Foundation (2019). What is R? {[}online{]} R-project.org.
+Available at: \url{https://www.r-project.org/about.html}. Vaccaro, M.,
+Almaatouq, A. and Malone, T. (2024). When combinations of humans and AI
+are useful: A systematic review and meta-analysis. Nature Human
+Behaviour, {[}online{]} 8. doi:
+\url{https://doi.org/10.1038/s41562-024-02024-1}. Wulff, J.N. and
+Taylor, L. (2024). How and why alpha should depend on sample size: A
+Bayesian-frequentist compromise for significance testing. Strategic
+organization. doi: \url{https://doi.org/10.1177/14761270231214429}.
+Yang, Z., He, L. and Huang, T. (2024). Powering Pro-Environment
+Behavior: The Impact of Unlocking Reward Strategy on Pro-Environmental
+Behavior. Sustainability, {[}online{]} 16(21), p.9561. doi:
+\url{https://doi.org/10.3390/su16219561}.
+
+\end{document}
